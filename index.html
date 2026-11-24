@@ -1,0 +1,3136 @@
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>शिव ढाबा खाता - डिजिटल मुनीम</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Sans Devanagari & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans Devanagari"', 'Poppins', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#090A0F',
+            cardDark: '#12141D',
+            cardElevated: '#181B26',
+            mint: '#10B981',
+            coral: '#F43F5E',
+            amberGold: '#F59E0B',
+            cyanGlow: '#06B6D4',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Option 6: Futuristic Obsidian Dark Bento-Grid Custom Styles */
+    body {
+      background-color: #090A0F;
+      color: #F8FAFC;
+      font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Neon Glows */
+    .ambient-bg {
+      background: 
+        radial-gradient(circle at 15% 10%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(139, 92, 246, 0.1) 0%, transparent 45%),
+        #090A0F;
+    }
+
+    /* Bento Card Styling */
+    .bento-card {
+      background: linear-gradient(145deg, rgba(22, 25, 36, 0.92), rgba(14, 16, 23, 0.96));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .bento-tile-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* Glowing Colored Borders for Summary Tiles */
+    .border-glow-mint {
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.12), rgba(18, 20, 29, 0.95));
+    }
+    .border-glow-coral {
+      border: 1px solid rgba(244, 63, 94, 0.35);
+      background: linear-gradient(145deg, rgba(244, 63, 94, 0.12), rgba(18, 20, 29, 0.95));
+    }
+    .border-glow-amber {
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.12), rgba(18, 20, 29, 0.95));
+    }
+    .border-glow-cyan {
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      background: linear-gradient(145deg, rgba(6, 182, 212, 0.12), rgba(18, 20, 29, 0.95));
+    }
+    .border-glow-silver {
+      border: 1px solid rgba(226, 232, 240, 0.28);
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(18, 20, 29, 0.98));
+    }
+
+    /* Floating Mic Button Pulse */
+    .mic-ring {
+      background: linear-gradient(135deg, #06B6D4, #8B5CF6, #EC4899);
+      box-shadow: 0 0 24px rgba(6, 182, 212, 0.45), 0 0 40px rgba(139, 92, 246, 0.3);
+    }
+    @keyframes pulseMic {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 22px rgba(6, 182, 212, 0.5); }
+      50% { transform: scale(1.07); box-shadow: 0 0 36px rgba(236, 72, 153, 0.75); }
+    }
+    .mic-listening {
+      animation: pulseMic 1.2s infinite ease-in-out;
+    }
+    @keyframes soundWaveBar {
+      0%, 100% { height: 6px; }
+      50% { height: 20px; }
+    }
+    .wave-bar {
+      width: 3px;
+      background: #22D3EE;
+      border-radius: 9999px;
+      animation: soundWaveBar 0.7s infinite ease-in-out;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090A0F;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #272B3B;
+      border-radius: 9999px;
+    }
+
+    /* Print Thermal / A4 Receipt Styles */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #print-area, #print-area * {
+        visibility: visible;
+      }
+      #print-area {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: white !important;
+        color: black !important;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body class="ambient-bg min-h-screen flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+
+  <!-- Toast Notification Banner (No alert() used) -->
+  <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-md pointer-events-none flex flex-col gap-2"></div>
+
+  <!-- Main App Container -->
+  <div class="w-full max-w-2xl mx-auto px-3.5 pt-3 pb-28 flex-1 flex flex-col">
+
+    <!-- Top Header -->
+    <header class="flex items-center justify-between py-2 mb-3">
+      <div class="flex items-center gap-2.5 cursor-pointer" onclick="navigateTo('home')">
+        <!-- Trishul / Dhaba Emblem -->
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-amber-500/20 border border-cyan-400/30 flex items-center justify-center shadow-lg">
+          <span class="text-2xl select-none" title="शिव ढाबा">🔱</span>
+        </div>
+        <div>
+          <h1 id="header-dhaba-name" class="text-xl sm:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-cyan-200 bg-clip-text text-transparent">
+            शिव ढाबा खाता
+          </h1>
+          <div class="flex items-center gap-2 text-xs text-slate-400">
+            <span id="header-shift-date" class="font-medium text-slate-300">24 नवंबर 2026</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-semibold">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              सुबह 7:00 से जारी
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Backup & Export Header Icons -->
+      <div class="flex items-center gap-1.5">
+        <button onclick="exportBackupJSON()" title="डेटा बैकअप डाउनलोड करें" class="p-2.5 rounded-xl bento-card hover:border-cyan-400/40 text-slate-300 hover:text-cyan-300 flex flex-col items-center justify-center">
+          <i class="fa-solid fa-cloud-arrow-down text-sm"></i>
+          <span class="text-[10px] mt-0.5">बैकअप</span>
+        </button>
+        <button onclick="navigateTo('settings')" title="सेटिंग्स" class="p-2.5 rounded-xl bento-card hover:border-purple-400/40 text-slate-300 hover:text-purple-300 flex flex-col items-center justify-center">
+          <i class="fa-solid fa-gear text-sm"></i>
+          <span class="text-[10px] mt-0.5">सेटिंग</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ==================== VIEW 1: HOME SCREEN ==================== -->
+    <main id="view-home" class="space-y-4">
+      <!-- Live Summary Bento Card ('आज का हिसाब') -->
+      <section class="bento-card rounded-3xl p-4 sm:p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <h2 class="text-base sm:text-lg font-bold text-white">आज का हिसाब</h2>
+            <span class="text-[11px] px-2 py-0.5 rounded-md bg-white/5 text-slate-400 border border-white/10">7 AM - 7 AM शिफ्ट</span>
+          </div>
+          <span class="text-xs text-slate-400">ओपनिंग कैश: <strong id="home-opening-cash" class="text-slate-200">₹0</strong></span>
+        </div>
+
+        <!-- 2x2 Grid for Sales, Expense, New Udhar, Vasooli -->
+        <div class="grid grid-cols-2 gap-2.5 sm:gap-3 mb-3">
+          <!-- आज की बिक्री (Mint Green) -->
+          <div onclick="navigateTo('sales')" class="border-glow-mint rounded-2xl p-3 sm:p-3.5 cursor-pointer hover:brightness-110 transition">
+            <div class="flex items-center justify-between text-xs text-emerald-300/90 mb-1">
+              <span>आज की बिक्री</span>
+              <i class="fa-solid fa-arrow-trend-up text-emerald-400"></i>
+            </div>
+            <div id="stat-today-sales" class="text-xl sm:text-2xl font-extrabold text-emerald-400 tracking-tight">₹0</div>
+            <div id="stat-sales-split" class="text-[10px] text-emerald-200/70 mt-1 truncate">खाना ₹0 • कन्फेक्शनरी ₹0</div>
+          </div>
+
+          <!-- आज का खर्च (Coral Red) -->
+          <div onclick="navigateTo('expense')" class="border-glow-coral rounded-2xl p-3 sm:p-3.5 cursor-pointer hover:brightness-110 transition">
+            <div class="flex items-center justify-between text-xs text-rose-300/90 mb-1">
+              <span>आज का खर्च</span>
+              <i class="fa-solid fa-wallet text-rose-400"></i>
+            </div>
+            <div id="stat-today-expense" class="text-xl sm:text-2xl font-extrabold text-rose-400 tracking-tight">₹0</div>
+            <div id="stat-expense-count" class="text-[10px] text-rose-200/70 mt-1">आज की कुल खपत</div>
+          </div>
+
+          <!-- नया उधार (Amber Gold) -->
+          <div onclick="navigateTo('udhar')" class="border-glow-amber rounded-2xl p-3 sm:p-3.5 cursor-pointer hover:brightness-110 transition">
+            <div class="flex items-center justify-between text-xs text-amber-300/90 mb-1">
+              <span>नया उधार</span>
+              <i class="fa-solid fa-book-open text-amber-400"></i>
+            </div>
+            <div id="stat-today-udhar" class="text-xl sm:text-2xl font-extrabold text-amber-400 tracking-tight">₹0</div>
+            <div class="text-[10px] text-amber-200/70 mt-1">आज खाते में लिखा</div>
+          </div>
+
+          <!-- पुरानी वसूली (Cyan - Strictly separate from Sales) -->
+          <div onclick="navigateTo('udhar')" class="border-glow-cyan rounded-2xl p-3 sm:p-3.5 cursor-pointer hover:brightness-110 transition">
+            <div class="flex items-center justify-between text-xs text-cyan-300/90 mb-1">
+              <span>पुरानी वसूली</span>
+              <i class="fa-solid fa-hand-holding-dollar text-cyan-400"></i>
+            </div>
+            <div id="stat-today-vasooli" class="text-xl sm:text-2xl font-extrabold text-cyan-400 tracking-tight">₹0</div>
+            <div class="text-[10px] text-cyan-200/70 mt-1">बिक्री से अलग रिकॉर्ड</div>
+          </div>
+        </div>
+
+        <!-- Cash in Drawer (गल्ले में कैश - Bold Silver/White Card) -->
+        <div onclick="navigateTo('report')" class="border-glow-silver rounded-2xl p-3.5 sm:p-4 flex items-center justify-between cursor-pointer hover:brightness-110 transition">
+          <div>
+            <div class="text-xs sm:text-sm text-slate-300 font-medium flex items-center gap-1.5">
+              <i class="fa-solid fa-cash-register text-slate-200"></i>
+              <span>गल्ले में कैश (अनुमानित)</span>
+            </div>
+            <div class="text-[11px] text-slate-400 mt-0.5">ओपनिंग + नकद बिक्री + नकद वसूली - नकद खर्च</div>
+          </div>
+          <div id="stat-drawer-cash" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">₹0</div>
+        </div>
+
+        <div class="mt-2.5 flex items-center justify-between text-[11px] text-slate-400 px-1">
+          <span>कुल बकाया उधार: <strong id="stat-total-market-udhar" class="text-amber-400">₹0</strong></span>
+          <span>आज निजी खर्च: <strong id="stat-today-personal-badge" class="text-pink-400">₹0</strong></span>
+        </div>
+      </section>
+
+      <!-- Main Section Cards Grid -->
+      <section class="grid grid-cols-3 gap-2.5 sm:gap-3.5">
+        <!-- 1. बिक्री (Sales) -->
+        <button onclick="navigateTo('sales')" class="bento-card bento-tile-btn rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center gap-2.5 hover:border-emerald-400/50 group">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 transition">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <span class="text-sm sm:text-base font-bold text-slate-100">बिक्री</span>
+        </button>
+
+        <!-- 2. ढाबा खर्च (Dhaba Expense) -->
+        <button onclick="navigateTo('expense')" class="bento-card bento-tile-btn rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center gap-2.5 hover:border-rose-400/50 group">
+          <div class="w-12 h-12 rounded-2xl bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 text-xl group-hover:scale-110 transition">
+            <i class="fa-solid fa-wallet"></i>
+          </div>
+          <span class="text-sm sm:text-base font-bold text-slate-100">ढाबा खर्च</span>
+        </button>
+
+        <!-- 3. निजी खर्च (Personal Expense - Dedicated Section) -->
+        <button onclick="navigateTo('personal')" class="bento-card bento-tile-btn rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center gap-2.5 hover:border-pink-400/50 group">
+          <div class="w-12 h-12 rounded-2xl bg-pink-500/15 border border-pink-500/30 flex items-center justify-center text-pink-400 text-xl group-hover:scale-110 transition">
+            <i class="fa-solid fa-user-shield"></i>
+          </div>
+          <span class="text-sm sm:text-base font-bold text-slate-100">निजी खर्च</span>
+        </button>
+
+        <!-- 4. उधार (Udhar) -->
+        <button onclick="navigateTo('udhar')" class="bento-card bento-tile-btn rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center gap-2.5 hover:border-amber-400/50 group">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl group-hover:scale-110 transition">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+          </div>
+          <span class="text-sm sm:text-base font-bold text-slate-100">उधार</span>
+        </button>
+
+        <!-- 5. ग्राहक (Customers) -->
+        <button onclick="navigateTo('customers')" class="bento-card bento-tile-btn rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center gap-2.5 hover:border-blue-400/50 group">
+          <div class="w-12 h-12 rounded-2xl bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl group-hover:scale-110 transition">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <span class="text-sm sm:text-base font-bold text-slate-100">ग्राहक</span>
+        </button>
+
+        <!-- 6. स्टाफ / सैलरी (Staff & Salary - Default Present System) -->
+        <button onclick="navigateTo('staff')" class="bento-card bento-tile-btn rounded-2xl p-4 sm:p-5 flex flex-col items-center justify-center gap-2.5 hover:border-violet-400/50 group">
+          <div class="w-12 h-12 rounded-2xl bg-violet-500/15 border border-violet-500/30 flex items-center justify-center text-violet-400 text-xl group-hover:scale-110 transition">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+          <span class="text-sm sm:text-base font-bold text-slate-100">स्टाफ / सैलरी</span>
+        </button>
+
+        <!-- 7. रिपोर्ट (Reports) -->
+        <button onclick="navigateTo('report')" class="col-span-2 bento-card bento-tile-btn rounded-2xl py-3.5 px-4 flex items-center justify-center gap-2.5 hover:border-purple-400/50 group">
+          <div class="w-9 h-9 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 text-base group-hover:scale-110 transition">
+            <i class="fa-solid fa-chart-column"></i>
+          </div>
+          <span class="text-sm sm:text-base font-bold text-slate-100">रिपोर्ट व मासिक हिसाब</span>
+        </button>
+
+        <!-- 8. सेटिंग्स (Settings) -->
+        <button onclick="navigateTo('settings')" class="bento-card bento-tile-btn rounded-2xl py-3.5 px-3 flex items-center justify-center gap-2 hover:border-slate-400/50 group">
+          <div class="w-9 h-9 rounded-xl bg-slate-500/15 border border-slate-500/30 flex items-center justify-center text-slate-300 text-sm group-hover:rotate-45 transition">
+            <i class="fa-solid fa-sliders"></i>
+          </div>
+          <span class="text-sm font-bold text-slate-200">सेटिंग्स</span>
+        </button>
+      </section>
+
+      <!-- Recent Activity Preview on Home -->
+      <section class="bento-card rounded-2xl p-4">
+        <div class="flex items-center justify-between mb-2.5">
+          <h3 class="text-sm font-bold text-slate-200">आज की ताज़ा एंट्री</h3>
+          <button onclick="navigateTo('report')" class="text-xs text-cyan-400 hover:underline">पूरा हिसाब देखें →</button>
+        </div>
+        <div id="home-recent-list" class="space-y-2 max-h-52 overflow-y-auto pr-1">
+          <!-- Populated dynamically -->
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== VIEW 2: बिक्री (SALES) ==================== -->
+    <section id="view-sales" class="hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <button onclick="navigateTo('home')" class="px-3.5 py-2 rounded-xl bento-card text-sm font-semibold text-slate-200 flex items-center gap-2 hover:border-cyan-400/40">
+          <i class="fa-solid fa-arrow-left"></i> होम
+        </button>
+        <h2 class="text-lg font-extrabold text-emerald-400 flex items-center gap-2">
+          <i class="fa-solid fa-chart-line"></i> बिक्री दर्ज करें
+        </h2>
+        <div class="w-16"></div>
+      </div>
+
+      <!-- Category Selector: खाना vs कन्फेक्शनरी -->
+      <div class="bento-card rounded-3xl p-4 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-2">1. सेक्शन चुनें (खाना या कन्फेक्शनरी)</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <button type="button" id="sales-cat-food" onclick="setSalesCategory('खाना')" class="p-3.5 rounded-2xl border-2 border-emerald-500 bg-emerald-500/20 text-emerald-300 font-bold text-sm flex items-center justify-center gap-2 transition">
+              <span class="text-lg">🍛</span> खाना (Food)
+            </button>
+            <button type="button" id="sales-cat-conf" onclick="setSalesCategory('कन्फेक्शनरी')" class="p-3.5 rounded-2xl border border-white/10 bg-white/5 text-slate-300 font-bold text-sm flex items-center justify-center gap-2 transition">
+              <span class="text-lg">🥤</span> कन्फेक्शनरी / कोल्ड ड्रिंक
+            </button>
+          </div>
+        </div>
+
+        <!-- Mode Tabs: सीधी एंट्री vs मेन्यू से चुनें -->
+        <div class="grid grid-cols-2 p-1 rounded-2xl bg-black/50 border border-white/10">
+          <button type="button" id="tab-sales-quick" onclick="switchSalesMode('quick')" class="py-2.5 rounded-xl bg-emerald-500 text-black font-bold text-xs sm:text-sm transition">
+            ⚡ सीधी एंट्री (रकम डालें)
+          </button>
+          <button type="button" id="tab-sales-menu" onclick="switchSalesMode('menu')" class="py-2.5 rounded-xl text-slate-300 font-bold text-xs sm:text-sm transition">
+            📋 मेन्यू से चुनें (बिल)
+          </button>
+        </div>
+
+        <!-- Mode A: Quick Amount Entry -->
+        <form id="form-sales-quick" onsubmit="handleQuickSalesSubmit(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">कुल बिक्री की रकम (₹)</label>
+            <input type="number" id="sales-quick-amount" required min="1" step="any" placeholder="उदाहरण: 1500" class="w-full px-4 py-3.5 rounded-2xl bg-black/60 border border-emerald-500/40 focus:border-emerald-400 focus:outline-none text-2xl font-extrabold text-emerald-400 placeholder-slate-600" />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">पेमेंट कैसे आया?</label>
+            <div class="grid grid-cols-2 gap-2.5">
+              <label class="cursor-pointer">
+                <input type="radio" name="sales-quick-mode" value="Cash" checked class="peer hidden" />
+                <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-emerald-400 peer-checked:bg-emerald-500/20 peer-checked:text-emerald-300 text-center font-bold text-sm">
+                  💵 कैश (Cash)
+                </div>
+              </label>
+              <label class="cursor-pointer">
+                <input type="radio" name="sales-quick-mode" value="Online" class="peer hidden" />
+                <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-cyan-400 peer-checked:bg-cyan-500/20 peer-checked:text-cyan-300 text-center font-bold text-sm">
+                  📱 ऑनलाइन (UPI/Bank)
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">नोट / विवरण (वैकल्पिक)</label>
+            <input type="text" id="sales-quick-note" placeholder="जैसे: दोपहर का गल्ला, पार्टी ऑर्डर..." class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-emerald-400 focus:outline-none text-sm text-white placeholder-slate-500" />
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-black font-extrabold text-base shadow-lg shadow-emerald-500/25 hover:brightness-110 active:scale-[0.99] transition">
+            ✅ बिक्री सेव करें
+          </button>
+        </form>
+
+        <!-- Mode B: Itemized Menu Bill Builder -->
+        <div id="form-sales-menu" class="hidden space-y-4">
+          <div id="menu-items-grid" class="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto pr-1">
+            <!-- Populated from menu items -->
+          </div>
+
+          <!-- Selected Bill Cart Summary -->
+          <div class="p-3.5 rounded-2xl bg-black/60 border border-white/10 space-y-2">
+            <div class="flex items-center justify-between text-xs text-slate-400">
+              <span>चुने गए आइटम</span>
+              <button type="button" onclick="clearMenuCart()" class="text-rose-400 hover:underline">साफ करें</button>
+            </div>
+            <div id="menu-cart-list" class="text-xs text-slate-200 space-y-1 max-h-28 overflow-y-auto">
+              <p class="text-slate-500 italic">ऊपर से आइटम पर क्लिक करके जोड़ें...</p>
+            </div>
+            <div class="pt-2 border-t border-white/10 flex items-center justify-between">
+              <span class="text-sm font-bold text-slate-300">कुल बिल:</span>
+              <span id="menu-cart-total" class="text-xl font-extrabold text-emerald-400">₹0</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="cursor-pointer">
+              <input type="radio" name="sales-menu-mode" value="Cash" checked class="peer hidden" />
+              <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-emerald-400 peer-checked:bg-emerald-500/20 peer-checked:text-emerald-300 text-center font-bold text-sm">
+                💵 कैश (Cash)
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="sales-menu-mode" value="Online" class="peer hidden" />
+              <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-cyan-400 peer-checked:bg-cyan-500/20 peer-checked:text-cyan-300 text-center font-bold text-sm">
+                📱 ऑनलाइन (UPI)
+              </div>
+            </label>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5">
+            <button type="button" onclick="saveMenuBill(false)" class="py-3.5 rounded-2xl bg-emerald-500 text-black font-extrabold text-sm hover:brightness-110">
+              ✅ सेव करें
+            </button>
+            <button type="button" onclick="saveMenuBill(true)" class="py-3.5 rounded-2xl bg-cyan-500 text-black font-extrabold text-sm hover:brightness-110 flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-print"></i> सेव और प्रिंट
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Today's Sales History -->
+      <div class="bento-card rounded-2xl p-4">
+        <h3 class="text-sm font-bold text-emerald-300 mb-2.5">आज की दर्ज बिक्री</h3>
+        <div id="sales-today-list" class="space-y-2"></div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 3: खर्च (EXPENSE) ==================== -->
+    <section id="view-expense" class="hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <button onclick="navigateTo('home')" class="px-3.5 py-2 rounded-xl bento-card text-sm font-semibold text-slate-200 flex items-center gap-2 hover:border-cyan-400/40">
+          <i class="fa-solid fa-arrow-left"></i> होम
+        </button>
+        <h2 class="text-lg font-extrabold text-rose-400 flex items-center gap-2">
+          <i class="fa-solid fa-wallet"></i> खर्च दर्ज करें
+        </h2>
+        <div class="w-16"></div>
+      </div>
+
+      <form onsubmit="handleExpenseSubmit(event)" class="bento-card rounded-3xl p-4 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1.5">खर्च की रकम (₹)</label>
+          <input type="number" id="expense-amount" required min="1" step="any" placeholder="उदाहरण: 500" class="w-full px-4 py-3.5 rounded-2xl bg-black/60 border border-rose-500/40 focus:border-rose-400 focus:outline-none text-2xl font-extrabold text-rose-400 placeholder-slate-600" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-2">खर्च की कैटेगरी चुनें</label>
+          <div id="expense-category-chips" class="flex flex-wrap gap-2">
+            <!-- Category buttons -->
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1.5">खर्च का पूरा विवरण (किस चीज़ पर खर्च हुआ?)</label>
+          <input type="text" id="expense-detail" required placeholder="जैसे: आलू-प्याज 10 किलो, दूध 15 लीटर, गैस टंकी..." class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-rose-400 focus:outline-none text-sm text-white placeholder-slate-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1.5">पेमेंट कहाँ से दिया?</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="cursor-pointer">
+              <input type="radio" name="expense-mode" value="Cash" checked class="peer hidden" />
+              <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-rose-400 peer-checked:bg-rose-500/20 peer-checked:text-rose-300 text-center font-bold text-sm">
+                💵 गल्ले के कैश से
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="expense-mode" value="Online" class="peer hidden" />
+              <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-cyan-400 peer-checked:bg-cyan-500/20 peer-checked:text-cyan-300 text-center font-bold text-sm">
+                📱 ऑनलाइन (UPI/बैंक)
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-600 text-white font-extrabold text-base shadow-lg shadow-rose-500/25 hover:brightness-110 active:scale-[0.99] transition">
+          ✅ खर्च सेव करें
+        </button>
+      </form>
+
+      <!-- Today's Expense List -->
+      <div class="bento-card rounded-2xl p-4">
+        <h3 class="text-sm font-bold text-rose-300 mb-2.5">आज के खर्चों की सूची</h3>
+        <div id="expense-today-list" class="space-y-2"></div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 3B: निजी खर्च (PERSONAL EXPENSE) ==================== -->
+    <section id="view-personal" class="hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <button onclick="navigateTo('home')" class="px-3.5 py-2 rounded-xl bento-card text-sm font-semibold text-slate-200 flex items-center gap-2 hover:border-pink-400/40">
+          <i class="fa-solid fa-arrow-left"></i> होम
+        </button>
+        <h2 class="text-lg font-extrabold text-pink-400 flex items-center gap-2">
+          <i class="fa-solid fa-user-shield"></i> निजी खर्च (Personal)
+        </h2>
+        <button onclick="openPersonalMonthlyReport()" class="px-3 py-2 rounded-xl bg-pink-500/20 border border-pink-400/40 text-pink-300 font-bold text-xs flex items-center gap-1">
+          <i class="fa-solid fa-calendar-days"></i> मासिक रिपोर्ट
+        </button>
+      </div>
+
+      <!-- Info Rule Box -->
+      <div class="bento-card rounded-2xl p-3.5 border-pink-500/30 text-xs text-slate-300 space-y-1">
+        <div class="font-bold text-pink-300">💡 निजी खर्च का नियम (गल्ले और कुल बिक्री का सही मिलान):</div>
+        <p class="text-[11px] text-slate-400">जब आप गल्ले से अपने निजी उपयोग के लिए पैसे लेते हैं, तो यह <strong>गल्ले में कैश</strong> से घट जाता है, और दिन के अंत में <strong>कुल बिक्री (Net Sale)</strong> की गणना करते समय वापस जुड़ जाता है ताकि ढाबे का असली मुनाफा कम न दिखे।</p>
+      </div>
+
+      <!-- Quick Summary Cards for Personal Expense -->
+      <div class="grid grid-cols-2 gap-2.5">
+        <div class="bento-card rounded-2xl p-3.5 border-pink-500/30">
+          <span class="text-[11px] text-slate-400 block">आज का निजी खर्च</span>
+          <strong id="personal-today-total" class="text-xl font-extrabold text-pink-400">₹0</strong>
+        </div>
+        <div class="bento-card rounded-2xl p-3.5 border-purple-500/30">
+          <span class="text-[11px] text-slate-400 block">इस महीने का कुल निजी खर्च</span>
+          <strong id="personal-month-total" class="text-xl font-extrabold text-purple-300">₹0</strong>
+        </div>
+      </div>
+
+      <!-- Personal Expense Entry Form -->
+      <form onsubmit="handlePersonalExpenseSubmit(event)" class="bento-card rounded-3xl p-4 space-y-4 border-pink-500/25">
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1.5">निजी खर्च की रकम (₹) *</label>
+          <input type="number" id="personal-amount" required min="1" step="any" placeholder="उदाहरण: 500" class="w-full px-4 py-3.5 rounded-2xl bg-black/60 border border-pink-500/40 focus:border-pink-400 focus:outline-none text-2xl font-extrabold text-pink-400 placeholder-slate-600" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1.5">किस निजी काम के लिए लिए? (विवरण)</label>
+          <input type="text" id="personal-note" required placeholder="जैसे: घर का सामान, बच्चों की फीस, निजी उपयोग..." class="w-full px-4 py-3 rounded-xl bg-black/50 border border-white/10 focus:border-pink-400 focus:outline-none text-sm text-white placeholder-slate-500" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1.5">पैसे कहाँ से लिए?</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="cursor-pointer">
+              <input type="radio" name="personal-mode" value="Cash" checked class="peer hidden" />
+              <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-pink-400 peer-checked:bg-pink-500/20 peer-checked:text-pink-200 text-center font-bold text-sm">
+                💵 गल्ले के कैश से
+              </div>
+            </label>
+            <label class="cursor-pointer">
+              <input type="radio" name="personal-mode" value="Online" class="peer hidden" />
+              <div class="p-3 rounded-xl border border-white/10 bg-white/5 peer-checked:border-cyan-400 peer-checked:bg-cyan-500/20 peer-checked:text-cyan-300 text-center font-bold text-sm">
+                📱 ऑनलाइन (UPI/बैंक)
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 text-white font-extrabold text-base shadow-lg shadow-pink-500/25 hover:brightness-110 active:scale-[0.99] transition">
+          ✅ निजी खर्च सेव करें
+        </button>
+      </form>
+
+      <!-- Recent Personal Expenses List -->
+      <div class="bento-card rounded-2xl p-4">
+        <div class="flex items-center justify-between mb-2.5">
+          <h3 class="text-sm font-bold text-pink-300">हाल के निजी खर्च</h3>
+          <button onclick="openPersonalMonthlyReport()" class="text-xs text-cyan-400 hover:underline">पूरे महीने की रिपोर्ट देखें →</button>
+        </div>
+        <div id="personal-recent-list" class="space-y-2"></div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 4: उधार & ग्राहक (KHATA-BAHI LEDGER) ==================== -->
+    <section id="view-udhar" class="hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <button onclick="navigateTo('home')" class="px-3.5 py-2 rounded-xl bento-card text-sm font-semibold text-slate-200 flex items-center gap-2 hover:border-cyan-400/40">
+          <i class="fa-solid fa-arrow-left"></i> होम
+        </button>
+        <h2 id="udhar-view-title" class="text-lg font-extrabold text-amber-400 flex items-center gap-2">
+          <i class="fa-solid fa-book-open"></i> उधार खाता-बही
+        </h2>
+        <button onclick="openNewCustomerModal()" class="px-3 py-2 rounded-xl bg-amber-500 text-black font-bold text-xs flex items-center gap-1 shadow-md">
+          <i class="fa-solid fa-user-plus"></i> नया ग्राहक
+        </button>
+      </div>
+
+      <!-- Ledger Summary Strip -->
+      <div class="grid grid-cols-2 gap-2.5">
+        <div class="bento-card rounded-2xl p-3 border-amber-500/30">
+          <span class="text-[11px] text-slate-400 block">कुल बाजार बकाया</span>
+          <strong id="ledger-total-pending" class="text-lg font-extrabold text-amber-400">₹0</strong>
+        </div>
+        <div class="bento-card rounded-2xl p-3 border-cyan-500/30">
+          <span class="text-[11px] text-slate-400 block">आज की कुल वसूली</span>
+          <strong id="ledger-today-vasooli" class="text-lg font-extrabold text-cyan-400">₹0</strong>
+        </div>
+      </div>
+
+      <!-- Customer Search Box -->
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input type="text" id="customer-search-input" oninput="renderCustomerList()" placeholder="ग्राहक का नाम या मोबाइल नंबर खोजें..." class="w-full pl-10 pr-4 py-3 rounded-2xl bento-card text-sm text-white placeholder-slate-500 focus:border-amber-400 focus:outline-none" />
+      </div>
+
+      <!-- Customer Cards List -->
+      <div id="customer-ledger-list" class="space-y-2.5"></div>
+    </section>
+
+    <!-- ==================== VIEW 5: CUSTOMER PROFILE LEDGER ==================== -->
+    <section id="view-customer-detail" class="hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <button onclick="navigateTo('udhar')" class="px-3.5 py-2 rounded-xl bento-card text-sm font-semibold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> सूची
+        </button>
+        <h2 class="text-base font-extrabold text-amber-400">ग्राहक खाता विवरण</h2>
+        <button onclick="openReminderModal()" class="px-3 py-2 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-bold text-xs flex items-center gap-1.5">
+          <i class="fa-brands fa-whatsapp"></i> रिमाइंडर भेजें
+        </button>
+      </div>
+
+      <div class="bento-card rounded-3xl p-4 sm:p-5 border-amber-500/30 space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 id="detail-cust-name" class="text-xl font-extrabold text-white">ग्राहक नाम</h3>
+            <p id="detail-cust-phone" class="text-xs text-slate-400 mt-0.5"><i class="fa-solid fa-phone"></i> 0000000000</p>
+          </div>
+          <div class="text-right">
+            <span class="text-[11px] text-slate-400 block">कुल बकाया रकम</span>
+            <span id="detail-cust-balance" class="text-2xl sm:text-3xl font-extrabold text-amber-400">₹0</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 pt-1">
+          <button onclick="openCustomerTxModal('udhar')" class="py-3.5 px-3 rounded-2xl bg-gradient-to-r from-rose-600 to-red-600 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-rose-600/25 flex items-center justify-center gap-1.5 active:scale-95 transition">
+            🔴 उधार दिया (और गया)
+          </button>
+          <button onclick="openCustomerTxModal('vasooli')" class="py-3.5 px-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-black font-extrabold text-xs sm:text-sm shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-1.5 active:scale-95 transition">
+            🟢 पैसे आए (वसूली)
+          </button>
+        </div>
+      </div>
+
+      <div class="bento-card rounded-2xl p-4">
+        <h4 class="text-sm font-bold text-slate-200 mb-3">लेन-देन का पूरा रिकॉर्ड</h4>
+        <div id="detail-cust-history" class="space-y-2"></div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 5B: स्टाफ / सैलरी (DEFAULT PRESENT SYSTEM) ==================== -->
+    <section id="view-staff" class="hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <button onclick="navigateTo('home')" class="px-3.5 py-2 rounded-xl bento-card text-sm font-semibold text-slate-200 flex items-center gap-2 hover:border-violet-400/40">
+          <i class="fa-solid fa-arrow-left"></i> होम
+        </button>
+        <h2 class="text-lg font-extrabold text-violet-400 flex items-center gap-2">
+          <i class="fa-solid fa-user-tie"></i> स्टाफ व सैलरी
+        </h2>
+        <button onclick="openNewWorkerModal()" class="px-3 py-2 rounded-xl bg-violet-500 text-white font-bold text-xs flex items-center gap-1 shadow-md">
+          <i class="fa-solid fa-plus"></i> वर्कर जोड़ें
+        </button>
+      </div>
+
+      <div class="bento-card rounded-2xl p-3.5 border-violet-500/30 text-xs text-slate-300 space-y-1">
+        <div class="font-bold text-violet-300">💡 डिफ़ॉल्ट प्रेजेंट नियम (30 दिन के हिसाब से):</div>
+        <p class="text-[11px] text-slate-400">सभी वर्कर अपने-आप रोज़ <strong>प्रेजेंट</strong> रहते हैं। जिस दिन कोई छुट्टी करे, माइक दबाकर बोलें: <em>"आज अनिल छुट्टी पर है"</em> या <em>"अनिल कुक को एज ए शेफ नई एंट्री करो सैलरी 15000"</em>।</p>
+      </div>
+
+      <div id="staff-cards-list" class="space-y-3"></div>
+    </section>
+
+    <!-- ==================== VIEW 6: रिपोर्ट (REPORTS) ==================== -->
+    <section id="view-report" class="hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <button onclick="navigateTo('home')" class="px-3.5 py-2 rounded-xl bento-card text-sm font-semibold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> होम
+        </button>
+        <h2 class="text-lg font-extrabold text-purple-400 flex items-center gap-2">
+          <i class="fa-solid fa-chart-column"></i> हिसाब रिपोर्ट
+        </h2>
+        <button onclick="printCurrentReport()" class="px-3 py-2 rounded-xl bg-purple-500/20 border border-purple-400/40 text-purple-300 font-bold text-xs flex items-center gap-1">
+          <i class="fa-solid fa-print"></i> प्रिंट
+        </button>
+      </div>
+
+      <!-- Report Date Filter Pills -->
+      <div class="flex gap-2 overflow-x-auto pb-1">
+        <button id="rep-filter-today" onclick="setReportFilter('today')" class="px-3.5 py-2 rounded-xl bg-purple-500 text-white font-bold text-xs whitespace-nowrap">आज (7 AM - 7 AM)</button>
+        <button id="rep-filter-yesterday" onclick="setReportFilter('yesterday')" class="px-3.5 py-2 rounded-xl bento-card text-slate-300 font-bold text-xs whitespace-nowrap">कल का हिसाब</button>
+        <button id="rep-filter-7days" onclick="setReportFilter('7days')" class="px-3.5 py-2 rounded-xl bento-card text-slate-300 font-bold text-xs whitespace-nowrap">पिछले 7 दिन</button>
+        <button id="rep-filter-month" onclick="setReportFilter('month')" class="px-3.5 py-2 rounded-xl bento-card text-slate-300 font-bold text-xs whitespace-nowrap">यह महीना</button>
+      </div>
+
+      <div class="bento-card rounded-2xl p-3 flex items-center justify-between gap-2">
+        <span class="text-xs text-slate-400">किसी खास तारीख की रिपोर्ट:</span>
+        <input type="date" id="rep-custom-date" onchange="setReportFilter('custom')" class="px-3 py-1.5 rounded-xl bg-black/60 border border-white/15 text-xs text-white" />
+      </div>
+
+      <div id="report-content-area" class="space-y-3">
+        <!-- 1. Sales Report -->
+        <div class="bento-card rounded-2xl p-4 border-emerald-500/25 space-y-2 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-extrabold text-emerald-400 text-sm">1. दर्ज की गई कुल बिक्री (Direct Sales)</span>
+            <span id="rep-total-sales" class="text-lg font-extrabold text-emerald-400">₹0</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 pt-1 text-slate-300">
+            <div>🍛 खाना बिक्री: <strong id="rep-food-sales" class="text-white">₹0</strong></div>
+            <div>🥤 कन्फेक्शनरी: <strong id="rep-conf-sales" class="text-white">₹0</strong></div>
+            <div>💵 नकद (Cash): <strong id="rep-cash-sales" class="text-emerald-300">₹0</strong></div>
+            <div>📱 ऑनलाइन (UPI): <strong id="rep-online-sales" class="text-cyan-300">₹0</strong></div>
+          </div>
+        </div>
+
+        <!-- 2. Dhaba Expense Report -->
+        <div class="bento-card rounded-2xl p-4 border-rose-500/25 space-y-2 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-extrabold text-rose-400 text-sm">2. ढाबे का खर्च (Dhaba Expenses)</span>
+            <span id="rep-total-expense" class="text-lg font-extrabold text-rose-400">₹0</span>
+          </div>
+          <div class="flex gap-4 text-slate-300">
+            <div>💵 कैश खर्च: <strong id="rep-cash-expense" class="text-white">₹0</strong></div>
+            <div>📱 ऑनलाइन खर्च: <strong id="rep-online-expense" class="text-white">₹0</strong></div>
+          </div>
+          <div id="rep-expense-items" class="space-y-1 pt-2 max-h-40 overflow-y-auto"></div>
+        </div>
+
+        <!-- 2B. Personal Expense Summary in Report -->
+        <div class="bento-card rounded-2xl p-4 border-pink-500/30 space-y-2 text-xs">
+          <div class="flex justify-between items-center">
+            <span class="font-extrabold text-pink-400 text-sm">3. निजी खर्च (Personal Expense - मालिक)</span>
+            <span id="rep-personal-expense" class="text-lg font-extrabold text-pink-400">₹0</span>
+          </div>
+          <div class="flex gap-4 text-slate-300">
+            <div>💵 गल्ले के कैश से: <strong id="rep-personal-cash" class="text-white">₹0</strong></div>
+            <div>📱 ऑनलाइन से: <strong id="rep-personal-online" class="text-white">₹0</strong></div>
+          </div>
+          <p class="text-[11px] text-slate-400">यह रकम गल्ले के कैश से घटती है, लेकिन दिन की कुल बिक्री (Net Sale) निकालते समय वापस जुड़ती है।</p>
+        </div>
+
+        <!-- 4. Udhar & Vasooli (Separate from Sales) -->
+        <div class="bento-card rounded-2xl p-4 border-amber-500/25 space-y-2 text-xs">
+          <div class="font-extrabold text-amber-400 text-sm">4. उधार व वसूली (बिक्री से अलग)</div>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="p-2.5 rounded-xl bg-black/40">
+              <span class="text-slate-400 block">नया उधार दिया</span>
+              <strong id="rep-new-udhar" class="text-base text-amber-400">₹0</strong>
+            </div>
+            <div class="p-2.5 rounded-xl bg-black/40">
+              <span class="text-slate-400 block">पुरानी वसूली आई</span>
+              <strong id="rep-vasooli" class="text-base text-cyan-400">₹0</strong>
+              <span id="rep-vasooli-split" class="text-[10px] text-slate-400 block mt-0.5">Cash ₹0 • Online ₹0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Drawer Cash, Net Sale Formula & Net Profit -->
+        <div class="bento-card rounded-2xl p-4 border-purple-500/35 space-y-2.5 text-xs">
+          <div class="font-extrabold text-purple-300 text-sm">5. गल्ले का मिलान, Net Sale फॉर्मूला व शुद्ध बचत</div>
+          <div class="space-y-1 text-slate-300">
+            <div class="flex justify-between"><span>सुबह 7:00 बजे ओपनिंग कैश:</span><strong id="rep-opening-cash">₹0</strong></div>
+            <div class="flex justify-between text-emerald-400"><span>नकद बिक्री:</span><strong id="rep-add-cash-sales">+ ₹0</strong></div>
+            <div class="flex justify-between text-cyan-400"><span>नकद उधार वसूली:</span><strong id="rep-add-cash-vasooli">+ ₹0</strong></div>
+            <div class="flex justify-between text-rose-400"><span>ढाबा नकद खर्च:</span><strong id="rep-sub-cash-expense">- ₹0</strong></div>
+            <div class="flex justify-between text-pink-400"><span>निजी नकद खर्च (Personal):</span><strong id="rep-sub-personal-cash">- ₹0</strong></div>
+            <div class="flex justify-between pt-2 border-t border-white/10 text-sm font-extrabold text-white">
+              <span>गल्ले में कैश (Closing Cash):</span><span id="rep-expected-cash">₹0</span>
+            </div>
+          </div>
+
+          <!-- Reconciled Net Sale Formula Box (Includes Personal Expense) -->
+          <div class="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 space-y-1">
+            <div class="flex justify-between items-center text-sm font-extrabold text-emerald-300">
+              <span>कुल बिक्री (Net Sale फॉर्मूला से):</span>
+              <span id="rep-reconciled-net-sale" class="text-base text-emerald-400">₹0</span>
+            </div>
+            <div class="text-[10px] text-slate-400 leading-relaxed">
+              फॉर्मूला: (Closing Cash − Opening Cash) + ढाबा खर्च + <strong class="text-pink-300">निजी खर्च</strong> + नया उधार − पुरानी वसूली + ऑनलाइन बिक्री
+            </div>
+          </div>
+
+          <div class="flex justify-between pt-1 text-sm font-extrabold text-amber-300">
+            <span>ढाबे की शुद्ध बचत (Net Sale − ढाबा खर्च):</span><span id="rep-net-profit">₹0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. DEDICATED MONTHLY PERSONAL EXPENSE REPORT (निजी खर्च मासिक रिपोर्ट) -->
+      <div id="monthly-personal-report-card" class="bento-card rounded-3xl p-4 border-pink-500/40 space-y-3 text-xs">
+        <div class="flex items-center justify-between gap-2">
+          <div>
+            <h3 class="text-sm sm:text-base font-extrabold text-pink-400 flex items-center gap-1.5">
+              <i class="fa-solid fa-calendar-check"></i> निजी खर्च मासिक रिपोर्ट
+            </h3>
+            <p class="text-[11px] text-slate-400">महीने भर के सभी निजी खर्चों का पूरा हिसाब</p>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <input type="month" id="personal-month-picker" onchange="renderMonthlyPersonalReport()" class="px-2.5 py-1.5 rounded-xl bg-black/70 border border-pink-400/40 text-xs text-white font-bold" />
+            <button type="button" onclick="printMonthlyPersonalReport()" title="मासिक निजी खर्च प्रिंट करें" class="p-2 rounded-xl bg-pink-500/20 border border-pink-400/40 text-pink-300">
+              <i class="fa-solid fa-print"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-2 text-center">
+          <div class="p-2.5 rounded-xl bg-pink-500/15 border border-pink-400/30">
+            <span class="text-[10px] text-pink-200 block">कुल मासिक निजी खर्च</span>
+            <strong id="mpr-total" class="text-base font-extrabold text-pink-400">₹0</strong>
+          </div>
+          <div class="p-2.5 rounded-xl bg-black/45 border border-white/5">
+            <span class="text-[10px] text-slate-400 block">गल्ले के कैश से</span>
+            <strong id="mpr-cash" class="text-sm font-bold text-white">₹0</strong>
+          </div>
+          <div class="p-2.5 rounded-xl bg-black/45 border border-white/5">
+            <span class="text-[10px] text-slate-400 block">ऑनलाइन से</span>
+            <strong id="mpr-online" class="text-sm font-bold text-cyan-300">₹0</strong>
+          </div>
+        </div>
+
+        <div id="mpr-entries-list" class="space-y-1.5 max-h-60 overflow-y-auto pr-1">
+          <!-- Monthly personal expense rows injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VIEW 7: सेटिंग्स (SETTINGS) ==================== -->
+    <section id="view-settings" class="hidden space-y-4">
+      <div class="flex items-center justify-between">
+        <button onclick="navigateTo('home')" class="px-3.5 py-2 rounded-xl bento-card text-sm font-semibold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-arrow-left"></i> होम
+        </button>
+        <h2 class="text-lg font-extrabold text-slate-200 flex items-center gap-2">
+          <i class="fa-solid fa-sliders"></i> सेटिंग्स व बैकअप
+        </h2>
+        <div class="w-16"></div>
+      </div>
+
+      <form onsubmit="saveBusinessSettings(event)" class="bento-card rounded-3xl p-4 space-y-3.5 text-xs">
+        <h3 class="text-sm font-extrabold text-cyan-300">ढाबा जानकारी व शुरुआती बैलेंस</h3>
+        <div>
+          <label class="text-slate-400 block mb-1">ढाबे / होटल का नाम</label>
+          <input type="text" id="set-dhaba-name" class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white font-bold" />
+        </div>
+        <div class="grid grid-cols-2 gap-2.5">
+          <div>
+            <label class="text-slate-400 block mb-1">मोबाइल नंबर</label>
+            <input type="text" id="set-dhaba-phone" class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white" />
+          </div>
+          <div>
+            <label class="text-slate-400 block mb-1">आज का ओपनिंग कैश (₹)</label>
+            <input type="number" id="set-opening-cash" class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-emerald-500/40 text-emerald-400 font-bold" />
+          </div>
+        </div>
+        <div>
+          <label class="text-slate-400 block mb-1">पता (बिल पर प्रिंट के लिए)</label>
+          <input type="text" id="set-dhaba-address" class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/15 text-white" />
+        </div>
+        <div class="grid grid-cols-2 gap-2.5 items-center">
+          <div>
+            <label class="text-slate-400 block mb-1">प्रिंटर पेपर साइज़</label>
+            <select id="set-printer-size" class="w-full px-3 py-2.5 rounded-xl bg-black/70 border border-white/15 text-white">
+              <option value="58mm">58mm थर्मल रोल</option>
+              <option value="80mm">80mm थर्मल रोल</option>
+              <option value="A4">A4 / A5 फुल पेज</option>
+            </select>
+          </div>
+          <label class="flex items-center gap-2 pt-4 cursor-pointer">
+            <input type="checkbox" id="set-kitchen-printer" class="w-4 h-4 accent-cyan-500" />
+            <span class="text-slate-300 font-semibold">किचन (KOT) प्रिंटर सपोर्ट</span>
+          </label>
+        </div>
+        <button type="submit" class="w-full py-3.5 rounded-2xl bg-cyan-500 text-black font-extrabold text-sm">✅ सेटिंग्स सेव करें</button>
+      </form>
+
+      <!-- Menu Items Manager -->
+      <div class="bento-card rounded-3xl p-4 space-y-3 text-xs">
+        <h3 class="text-sm font-extrabold text-emerald-400">मेन्यू आइटम जोड़ें / बदलें</h3>
+        <div class="grid grid-cols-3 gap-2">
+          <input type="text" id="new-menu-name" placeholder="आइटम नाम" class="px-3 py-2 rounded-xl bg-black/60 border border-white/15 text-white" />
+          <input type="number" id="new-menu-price" placeholder="रेट (₹)" class="px-3 py-2 rounded-xl bg-black/60 border border-white/15 text-white" />
+          <select id="new-menu-cat" class="px-2 py-2 rounded-xl bg-black/70 border border-white/15 text-white">
+            <option value="खाना">खाना</option>
+            <option value="कन्फेक्शनरी">कन्फेक्शनरी</option>
+          </select>
+        </div>
+        <button type="button" onclick="addMenuItem()" class="w-full py-2.5 rounded-xl bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-bold">+ मेन्यू में जोड़ें</button>
+        <div id="settings-menu-list" class="space-y-1.5 max-h-44 overflow-y-auto"></div>
+      </div>
+
+      <!-- Offline Backup & Restore -->
+      <div class="bento-card rounded-3xl p-4 space-y-3 text-xs">
+        <h3 class="text-sm font-extrabold text-amber-400">डेटा बैकअप व रीस्टोर (ऑफलाइन सुरक्षा)</h3>
+        <div class="grid grid-cols-2 gap-2.5">
+          <button type="button" onclick="exportBackupJSON()" class="py-3 rounded-xl bg-amber-500 text-black font-extrabold">⬇️ बैकअप डाउनलोड (Export)</button>
+          <label class="py-3 rounded-xl bg-white/10 text-white font-extrabold text-center cursor-pointer">
+            ⬆️ बैकअप वापस लाएं (Import)
+            <input type="file" accept=".json" onchange="importBackupJSON(event)" class="hidden" />
+          </label>
+        </div>
+        <button type="button" onclick="confirmClearAllData()" class="w-full py-2.5 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-400 font-bold">🗑️ डेमो डेटा साफ करें (शुरुआत से हिसाब के लिए)</button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ==================== FLOATING BOTTOM VOICE MIC BAR (NO MODAL POPUP ON CLICK) ==================== -->
+  <div class="fixed bottom-3 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-md">
+    <div id="bottom-mic-bar" class="bento-card rounded-full p-1.5 pr-4 flex items-center justify-between border-cyan-500/40 shadow-2xl shadow-black transition-all">
+      <button id="floating-mic-btn" type="button" onclick="toggleBottomMicListening()" class="flex items-center gap-3 flex-1 min-w-0 text-left group">
+        <div id="mic-icon-circle" class="w-12 h-12 rounded-full mic-ring flex items-center justify-center text-white text-xl shrink-0 group-hover:scale-105 transition">
+          <i id="bottom-mic-icon" class="fa-solid fa-microphone"></i>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div id="bottom-mic-title" class="text-sm sm:text-base font-extrabold text-white tracking-wide truncate">बोलकर एंट्री करें</div>
+          <div id="bottom-mic-subtitle" class="text-[11px] text-cyan-300/85 truncate">दबाएं और सीधे बोलें (कोई अलग विंडो नहीं खुलेगी)</div>
+        </div>
+      </button>
+
+      <!-- Live Listening Soundwave Visuals -->
+      <div id="bottom-mic-waves" class="hidden items-center gap-1 px-2 shrink-0">
+        <span class="wave-bar" style="animation-delay:0s"></span>
+        <span class="wave-bar" style="animation-delay:0.15s"></span>
+        <span class="wave-bar" style="animation-delay:0.3s"></span>
+        <span class="wave-bar" style="animation-delay:0.1s"></span>
+        <span class="wave-bar" style="animation-delay:0.25s"></span>
+      </div>
+
+      <!-- Optional Keyboard/Type Fallback Trigger -->
+      <button type="button" onclick="openVoiceTypeFallback()" title="टाइप करके बोलें" class="ml-1 w-9 h-9 rounded-full bg-white/5 hover:bg-white/15 text-slate-300 flex items-center justify-center text-xs shrink-0">
+        <i class="fa-solid fa-keyboard"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== INLINE SECTION-ROUTED CONFIRMATION BANNER ==================== -->
+  <div id="voice-routed-banner" class="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-lg hidden">
+    <div class="bento-card rounded-3xl p-4 border-2 border-cyan-400 shadow-2xl shadow-cyan-950/80 space-y-3 bg-[#0E111A]/95">
+      <div class="flex items-center justify-between">
+        <span id="routed-badge" class="text-xs font-extrabold text-cyan-300 flex items-center gap-1.5">
+          🎙️ आवाज़ समझ ली गई — सही सेक्शन में तैयार
+        </span>
+        <button type="button" onclick="closeVoiceRoutedBanner()" class="w-7 h-7 rounded-full bg-white/10 text-slate-300 text-xs">✕</button>
+      </div>
+      <div id="routed-spoken-quote" class="text-[11px] text-slate-400 italic bg-black/50 px-3 py-1.5 rounded-xl truncate"></div>
+
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <div>
+          <label class="text-[10px] text-slate-400 block mb-0.5">प्रकार / सेक्शन</label>
+          <select id="conf-entry-type" onchange="toggleConfirmCustomerField()" class="w-full px-2.5 py-2 rounded-xl bg-slate-800 border border-white/15 text-white font-bold">
+            <option value="sales">🟢 बिक्री (Sales)</option>
+            <option value="expense">🔴 ढाबा खर्च (Expense)</option>
+            <option value="personal">🩷 निजी खर्च (Personal)</option>
+            <option value="udhar">🟡 नया उधार (Udhar)</option>
+            <option value="vasooli">🔵 उधार वसूली (Vasooli)</option>
+            <option value="staff_absent">🟣 वर्कर छुट्टी (Absent)</option>
+            <option value="staff_advance">💸 वर्कर एडवांस / सैलरी</option>
+            <option value="staff_add">➕ नया वर्कर जोड़ें</option>
+            <option value="staff_delete">🗑️ वर्कर डिलीट करें</option>
+          </select>
+        </div>
+        <div>
+          <label id="conf-amount-label" class="text-[10px] text-slate-400 block mb-0.5">रकम (₹)</label>
+          <input type="number" id="conf-amount" oninput="updatePerDayPreview()" class="w-full px-2.5 py-2 rounded-xl bg-slate-800 border border-white/15 text-white font-extrabold text-sm" />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-2 text-xs">
+        <div>
+          <label id="conf-cat-label" class="text-[10px] text-slate-400 block mb-0.5">कैटेगरी / नाम</label>
+          <input type="text" id="conf-target" class="w-full px-2.5 py-2 rounded-xl bg-slate-800 border border-white/15 text-white font-bold" />
+        </div>
+        <div>
+          <label id="conf-mode-label" class="text-[10px] text-slate-400 block mb-0.5">पेमेंट मोड</label>
+          <select id="conf-pay-mode" class="w-full px-2.5 py-2 rounded-xl bg-slate-800 border border-white/15 text-white font-bold">
+            <option value="Cash">💵 Cash (नकद)</option>
+            <option value="Online">📱 Online (UPI)</option>
+            <option value="Udhar">📒 उधार खाता</option>
+          </select>
+          <input type="text" id="conf-role-input" placeholder="पद: शेफ, वेटर..." class="hidden w-full px-2.5 py-2 rounded-xl bg-slate-800 border border-violet-400/40 text-white font-bold" />
+        </div>
+      </div>
+
+      <div id="conf-perday-badge" class="hidden px-3 py-1.5 rounded-xl bg-violet-500/15 border border-violet-400/30 text-[11px] text-violet-200 flex items-center justify-between">
+        <span>प्रतिदिन सैलरी (30 दिन के हिसाब से):</span>
+        <strong id="conf-perday-value" class="text-cyan-300">₹0 / दिन</strong>
+      </div>
+
+      <div class="text-xs">
+        <label class="text-[10px] text-slate-400 block mb-0.5">नोट / विवरण</label>
+        <input type="text" id="conf-note" class="w-full px-2.5 py-2 rounded-xl bg-slate-800 border border-white/15 text-white text-xs" />
+      </div>
+
+      <div class="grid grid-cols-2 gap-2.5 pt-1">
+        <button type="button" onclick="closeVoiceRoutedBanner()" class="py-2.5 rounded-xl bg-white/10 text-slate-300 font-bold text-xs">
+          ❌ रद्द करें
+        </button>
+        <button type="button" id="conf-save-btn" onclick="confirmAndSaveVoiceEntry()" class="py-2.5 rounded-xl bg-emerald-500 text-black font-extrabold text-xs shadow-lg">
+          ✅ सेव करें
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 1: KEYBOARD FALLBACK FOR VOICE COMMAND ==================== -->
+  <div id="voice-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bento-card rounded-3xl w-full max-w-md p-5 border-cyan-400/40 space-y-3.5">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-extrabold text-cyan-300">⌨️ लिखकर कमांड दें</h3>
+        <button type="button" onclick="closeVoiceModal()" class="w-8 h-8 rounded-full bg-white/10 text-slate-300">✕</button>
+      </div>
+      <textarea id="voice-transcript-input" rows="2" placeholder="जैसे: अनिल फाइटर कुक को एज ए शेफ नई एंट्री करो सैलरी 15000" class="w-full p-3 rounded-2xl bg-black/60 border border-white/15 text-sm text-white focus:border-cyan-400 focus:outline-none"></textarea>
+      <div class="flex flex-wrap gap-1.5 text-[11px]">
+        <button type="button" onclick="document.getElementById('voice-transcript-input').value='खाने की बिक्री 1500 रुपये कैश'" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">+ बिक्री ₹1500</button>
+        <button type="button" onclick="document.getElementById('voice-transcript-input').value='500 रुपये की सब्जी खरीदी कैश'" class="px-2.5 py-1 rounded-lg bg-rose-500/15 text-rose-300 border border-rose-500/30">- सब्जी ₹500</button>
+        <button type="button" onclick="document.getElementById('voice-transcript-input').value='अनिल फाइटर कुक को एज ए शेफ नई एंट्री करो सैलरी 15000'" class="px-2.5 py-1 rounded-lg bg-violet-500/15 text-violet-300 border border-violet-500/30">+ नया शेफ</button>
+        <button type="button" onclick="document.getElementById('voice-transcript-input').value='आज अनिल छुट्टी पर है'" class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-300 border border-amber-500/30">📅 छुट्टी</button>
+      </div>
+      <button type="button" onclick="const t=document.getElementById('voice-transcript-input').value; closeVoiceModal(); processSpokenTranscript(t);" class="w-full py-3 rounded-2xl bg-cyan-500 text-black font-extrabold text-sm">
+        🚀 समझें और सही सेक्शन खोलें
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: ADD NEW CUSTOMER / OLD UDHAR ==================== -->
+  <div id="new-customer-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <form onsubmit="handleAddNewCustomer(event)" class="bento-card rounded-3xl w-full max-w-md p-5 border-amber-400/40 space-y-3.5">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-extrabold text-amber-400">➕ नया ग्राहक / पुराना उधार जोड़ें</h3>
+        <button type="button" onclick="closeModal('new-customer-modal')" class="w-8 h-8 rounded-full bg-white/10 text-slate-300">✕</button>
+      </div>
+      <div>
+        <label class="block text-xs text-slate-400 mb-1">ग्राहक का नाम *</label>
+        <input type="text" id="new-cust-name" required placeholder="जैसे: मनोज यादव" class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/15 text-sm text-white" />
+      </div>
+      <div>
+        <label class="block text-xs text-slate-400 mb-1">मोबाइल नंबर (WhatsApp/SMS के लिए)</label>
+        <input type="tel" id="new-cust-phone" placeholder="10 अंकों का नंबर" class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/15 text-sm text-white" />
+      </div>
+      <div class="grid grid-cols-2 gap-2.5">
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">बकाया रकम (₹)</label>
+          <input type="number" id="new-cust-amount" min="0" value="0" class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-amber-500/40 text-base font-bold text-amber-400" />
+        </div>
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">उधार का प्रकार</label>
+          <select id="new-cust-type" class="w-full px-3 py-2.5 rounded-xl bg-black/70 border border-white/15 text-xs text-white font-bold">
+            <option value="new">आज का नया उधार</option>
+            <option value="old">पहले का पुराना बकाया</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs text-slate-400 mb-1">विवरण / सामान</label>
+        <input type="text" id="new-cust-note" placeholder="जैसे: पुराना खाता बकाया, खाना उधार..." class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/15 text-sm text-white" />
+      </div>
+      <button type="submit" class="w-full py-3.5 rounded-2xl bg-amber-500 text-black font-extrabold text-sm">✅ ग्राहक खाता बनाएं</button>
+    </form>
+  </div>
+
+  <!-- ==================== MODAL 6: ADD NEW WORKER / STAFF ADVANCE ==================== -->
+  <div id="new-worker-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <form onsubmit="handleAddNewWorker(event)" class="bento-card rounded-3xl w-full max-w-md p-5 border-violet-400/40 space-y-3.5">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-extrabold text-violet-400">➕ नया वर्कर जोड़ें</h3>
+        <button type="button" onclick="closeModal('new-worker-modal')" class="w-8 h-8 rounded-full bg-white/10 text-slate-300">✕</button>
+      </div>
+      <div>
+        <label class="block text-xs text-slate-400 mb-1">वर्कर का नाम *</label>
+        <input type="text" id="new-worker-name" required placeholder="जैसे: अनिल कुमार" class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/15 text-sm text-white" />
+      </div>
+      <div class="grid grid-cols-2 gap-2.5">
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">महीने की तय सैलरी (₹) *</label>
+          <input type="number" id="new-worker-salary" required min="500" placeholder="12000" class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-violet-500/40 text-base font-bold text-violet-300" />
+        </div>
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">काम / पद</label>
+          <input type="text" id="new-worker-role" placeholder="जैसे: रसोइया, वेटर" class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/15 text-sm text-white" />
+        </div>
+      </div>
+      <button type="submit" class="w-full py-3.5 rounded-2xl bg-violet-500 text-white font-extrabold text-sm">✅ वर्कर सेव करें (डिफ़ॉल्ट प्रेजेंट)</button>
+    </form>
+  </div>
+
+  <!-- ==================== MODAL 7: WORKER ADVANCE / PAYOUT ==================== -->
+  <div id="worker-advance-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <form onsubmit="handleWorkerAdvanceSubmit(event)" class="bento-card rounded-3xl w-full max-w-md p-5 border-violet-400/40 space-y-3.5">
+      <div class="flex items-center justify-between">
+        <h3 id="worker-adv-title" class="text-base font-extrabold text-violet-300">💸 एडवांस / सैलरी दें</h3>
+        <button type="button" onclick="closeModal('worker-advance-modal')" class="w-8 h-8 rounded-full bg-white/10 text-slate-300">✕</button>
+      </div>
+      <input type="hidden" id="worker-adv-id" />
+      <div>
+        <label class="block text-xs text-slate-400 mb-1">रकम (₹) *</label>
+        <input type="number" id="worker-adv-amount" required min="1" placeholder="1000" class="w-full px-4 py-3 rounded-2xl bg-black/60 border border-violet-500/40 text-2xl font-extrabold text-violet-300" />
+      </div>
+      <div>
+        <label class="block text-xs text-slate-400 mb-1">पेमेंट मोड (यह आज के खर्च में भी जुड़ेगा)</label>
+        <div class="grid grid-cols-2 gap-2">
+          <label class="cursor-pointer">
+            <input type="radio" name="worker-adv-mode" value="Cash" checked class="peer hidden" />
+            <div class="p-2.5 rounded-xl border border-white/15 peer-checked:border-violet-400 peer-checked:bg-violet-500/20 text-center text-xs font-bold">💵 गल्ले के कैश से</div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="worker-adv-mode" value="Online" class="peer hidden" />
+            <div class="p-2.5 rounded-xl border border-white/15 peer-checked:border-cyan-400 peer-checked:bg-cyan-500/20 text-center text-xs font-bold">📱 ऑनलाइन (UPI)</div>
+          </label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs text-slate-400 mb-1">नोट / विवरण</label>
+        <input type="text" id="worker-adv-note" placeholder="जैसे: खर्ची एडवांस, सैलरी भुगतान..." class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/15 text-sm text-white" />
+      </div>
+      <button type="submit" class="w-full py-3.5 rounded-2xl bg-violet-500 text-white font-extrabold text-sm">✅ एडवांस सेव करें</button>
+    </form>
+  </div>
+
+  <!-- ==================== MODAL 3: CUSTOMER UDHAR DIYA / PAISE AAYE ==================== -->
+  <div id="cust-tx-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <form onsubmit="handleCustomerTxSubmit(event)" class="bento-card rounded-3xl w-full max-w-md p-5 space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 id="cust-tx-modal-title" class="text-base font-extrabold text-white">उधार एंट्री</h3>
+        <button type="button" onclick="closeModal('cust-tx-modal')" class="w-8 h-8 rounded-full bg-white/10 text-slate-300">✕</button>
+      </div>
+      <input type="hidden" id="cust-tx-type" />
+      <div>
+        <label class="block text-xs text-slate-400 mb-1">रकम (₹) *</label>
+        <input type="number" id="cust-tx-amount" required min="1" step="any" placeholder="रकम लिखें" class="w-full px-4 py-3 rounded-2xl bg-black/60 border border-white/20 text-2xl font-extrabold text-white" />
+      </div>
+      <div id="cust-tx-mode-box" class="hidden">
+        <label class="block text-xs text-slate-400 mb-1">पैसे कैसे मिले?</label>
+        <div class="grid grid-cols-2 gap-2">
+          <label class="cursor-pointer">
+            <input type="radio" name="cust-vasooli-mode" value="Cash" checked class="peer hidden" />
+            <div class="p-2.5 rounded-xl border border-white/15 peer-checked:border-emerald-400 peer-checked:bg-emerald-500/20 text-center text-xs font-bold">💵 कैश (Cash)</div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="cust-vasooli-mode" value="Online" class="peer hidden" />
+            <div class="p-2.5 rounded-xl border border-white/15 peer-checked:border-cyan-400 peer-checked:bg-cyan-500/20 text-center text-xs font-bold">📱 ऑनलाइन (UPI)</div>
+          </label>
+        </div>
+      </div>
+      <div>
+        <label class="block text-xs text-slate-400 mb-1">सामान या विवरण (जैसे: 2 थाली खाना, सिगरेट, नगद जमा)</label>
+        <input type="text" id="cust-tx-note" placeholder="विवरण लिखें..." class="w-full px-3.5 py-2.5 rounded-xl bg-black/60 border border-white/15 text-sm text-white" />
+      </div>
+      <button type="submit" id="cust-tx-submit-btn" class="w-full py-3.5 rounded-2xl bg-emerald-500 text-black font-extrabold text-sm">✅ सेव करें</button>
+    </form>
+  </div>
+
+  <!-- ==================== MODAL 4: POLITE REMINDER APPROVAL MODAL ==================== -->
+  <div id="reminder-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bento-card rounded-3xl w-full max-w-md p-5 border-emerald-400/40 space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-extrabold text-emerald-400">📩 विनम्र उधार रिमाइंडर (आपकी मंजूरी)</h3>
+        <button onclick="closeModal('reminder-modal')" class="w-8 h-8 rounded-full bg-white/10 text-slate-300">✕</button>
+      </div>
+      <p class="text-xs text-slate-400">भेजने से पहले संदेश की जांच करें और अपनी मंजूरी दें:</p>
+      <textarea id="reminder-message-box" rows="5" class="w-full p-3.5 rounded-2xl bg-black/60 border border-emerald-500/30 text-sm text-slate-100 leading-relaxed focus:outline-none"></textarea>
+      <div class="grid grid-cols-2 gap-2.5">
+        <button onclick="sendReminderVia('whatsapp')" class="py-3 rounded-xl bg-emerald-500 text-black font-extrabold text-xs flex items-center justify-center gap-1.5">
+          <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp भेजें
+        </button>
+        <button onclick="sendReminderVia('sms')" class="py-3 rounded-xl bg-cyan-500 text-black font-extrabold text-xs flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-comment-sms text-base"></i> SMS / कॉपी करें
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 5: PRINT RECEIPT / REPORT PREVIEW ==================== -->
+  <div id="print-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bento-card rounded-3xl w-full max-w-md p-5 space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-extrabold text-cyan-300">🖨️ प्रिंट प्रीव्यू (<span id="print-size-badge">80mm</span>)</h3>
+        <button onclick="closeModal('print-modal')" class="w-8 h-8 rounded-full bg-white/10 text-slate-300">✕</button>
+      </div>
+      <div id="print-area" class="bg-white text-black p-4 rounded-xl font-mono text-xs space-y-2 shadow-inner max-h-96 overflow-y-auto">
+        <!-- Printable content injected here -->
+      </div>
+      <div class="grid grid-cols-2 gap-2.5">
+        <button onclick="closeModal('print-modal')" class="py-3 rounded-xl bg-white/10 text-slate-200 font-bold text-xs">बंद करें</button>
+        <button onclick="window.print()" class="py-3 rounded-xl bg-cyan-500 text-black font-extrabold text-xs flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-print"></i> अभी प्रिंट करें
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT APPLICATION LOGIC ==================== -->
+  <script>
+    // =========================================================================
+    // 1. STATE MANAGEMENT & 7:00 AM TO 7:00 AM SHIFT ENGINE (OFFLINE LOCALSTORAGE)
+    // =========================================================================
+    const STORAGE_KEY = 'shiv_dhaba_khata_v1';
+
+    const DEFAULT_MENU = [
+      { id: 'm1', name: 'सादा थाली', price: 80, category: 'खाना' },
+      { id: 'm2', name: 'स्पेशल थाली', price: 130, category: 'खाना' },
+      { id: 'm3', name: 'दाल फ्राई', price: 70, category: 'खाना' },
+      { id: 'm4', name: 'तवा रोटी', price: 10, category: 'खाना' },
+      { id: 'm5', name: 'चाय (स्पेशल)', price: 15, category: 'खाना' },
+      { id: 'm6', name: 'कोल्ड ड्रिंक (250ml)', price: 25, category: 'कन्फेक्शनरी' },
+      { id: 'm7', name: 'पानी बोतल', price: 20, category: 'कन्फेक्शनरी' },
+      { id: 'm8', name: 'सिगरेट / बीड़ी पैक', price: 20, category: 'कन्फेक्शनरी' }
+    ];
+
+    const EXPENSE_CATEGORIES = [
+      'सब्जी/राशन', 'दूध', 'गैस सिलेंडर', 'कन्फेक्शनरी स्टॉक', 'स्टाफ सैलरी/एडवांस', 'बिजली/मेंटेनेंस', 'अन्य'
+    ];
+
+    /**
+     * Calculates the active Business Shift Date string (YYYY-MM-DD)
+     * Rule: A business day starts at 7:00 AM and ends at next day 6:59 AM.
+     * So if current time is between 00:00 and 06:59, it belongs to yesterday's shift!
+     */
+    function getBusinessShiftDate(dateObj = new Date()) {
+      const d = new Date(dateObj);
+      if (d.getHours() < 7) {
+        d.setDate(d.getDate() - 1);
+      }
+      const year = d.getFullYear();
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+    }
+
+    function formatHindiDate(yyyy_mm_dd) {
+      if (!yyyy_mm_dd) return '';
+      const months = ['जनवरी', 'फरवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'];
+      const [y, m, d] = yyyy_mm_dd.split('-').map(Number);
+      return `${d} ${months[m - 1]} ${y}`;
+    }
+
+    function formatINR(num) {
+      return '₹' + Number(num || 0).toLocaleString('en-IN');
+    }
+
+    // Create initial realistic demo data for today's shift
+    function createInitialState() {
+      const todayShift = getBusinessShiftDate();
+      const nowIso = new Date().toISOString();
+
+      return {
+        settings: {
+          dhabaName: 'शिव ढाबा खाता',
+          phone: '98120-00000',
+          address: 'मेन हाईवे रोड, नांधा (हरियाणा)',
+          printerSize: '80mm',
+          kitchenPrinter: false
+        },
+        shiftBalances: {
+          [todayShift]: 3500 // Opening cash in drawer at 7:00 AM
+        },
+        transactions: [
+          {
+            id: 'tx_demo_1',
+            type: 'sales',
+            category: 'खाना',
+            amount: 8500,
+            mode: 'Cash',
+            note: 'दोपहर भोजन बिक्री (डेमो)',
+            shiftDate: todayShift,
+            timestamp: nowIso
+          },
+          {
+            id: 'tx_demo_2',
+            type: 'sales',
+            category: 'कन्फेक्शनरी',
+            amount: 4000,
+            mode: 'Online',
+            note: 'कोल्ड ड्रिंक व कन्फेक्शनरी (डेमो)',
+            shiftDate: todayShift,
+            timestamp: nowIso
+          },
+          {
+            id: 'tx_demo_3',
+            type: 'expense',
+            category: 'सब्जी/राशन',
+            amount: 1800,
+            mode: 'Cash',
+            note: 'ताज़ी सब्जी, पनीर व मसाले (डेमो)',
+            shiftDate: todayShift,
+            timestamp: nowIso
+          },
+          {
+            id: 'tx_demo_4',
+            type: 'expense',
+            category: 'दूध',
+            amount: 1400,
+            mode: 'Cash',
+            note: '25 लीटर दूध चाय व दही के लिए (डेमो)',
+            shiftDate: todayShift,
+            timestamp: nowIso
+          },
+          {
+            id: 'tx_demo_5',
+            type: 'udhar',
+            customerId: 'cust_1',
+            customerName: 'राहुल शर्मा',
+            amount: 1800,
+            mode: 'Udhar',
+            note: 'रात्रि भोजन व कोल्ड ड्रिंक (डेमो)',
+            shiftDate: todayShift,
+            timestamp: nowIso
+          },
+          {
+            id: 'tx_demo_6',
+            type: 'vasooli',
+            customerId: 'cust_2',
+            customerName: 'सुरेश कुमार',
+            amount: 2500,
+            mode: 'Cash',
+            note: 'पिछले हफ्ते का बकाया जमा (डेमो)',
+            shiftDate: todayShift,
+            timestamp: nowIso
+          }
+        ],
+        customers: [
+          {
+            id: 'cust_1',
+            name: 'राहुल शर्मा',
+            phone: '9876543210',
+            balance: 1800
+          },
+          {
+            id: 'cust_2',
+            name: 'सुरेश कुमार',
+            phone: '9811122233',
+            balance: 1200
+          }
+        ],
+        workers: [
+          {
+            id: 'wrk_1',
+            name: 'अनिल',
+            role: 'मुख्य रसोइया',
+            monthlySalary: 15000,
+            absentDates: [],
+            advances: [
+              { id: 'adv_1', amount: 1500, mode: 'Cash', note: 'खर्ची एडवांस (डेमो)', shiftDate: todayShift }
+            ]
+          },
+          {
+            id: 'wrk_2',
+            name: 'राजू',
+            role: 'हेल्पर / सर्विस',
+            monthlySalary: 10500,
+            absentDates: [],
+            advances: []
+          }
+        ],
+        menu: DEFAULT_MENU
+      };
+    }
+
+    let appState = loadAppState();
+    let currentSalesCategory = 'खाना';
+    let selectedExpenseCategory = 'सब्जी/राशन';
+    let menuCart = {};
+    let activeCustomerId = null;
+    let currentReportFilter = 'today';
+
+    function loadAppState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) {
+          const init = createInitialState();
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(init));
+          return init;
+        }
+        const parsed = JSON.parse(raw);
+        if (!Array.isArray(parsed.workers)) {
+          parsed.workers = createInitialState().workers;
+        }
+        // Ensure automatic 7:00 AM shift rollover for opening balance
+        ensureTodayShiftBalance(parsed);
+        return parsed;
+      } catch (e) {
+        console.error('Storage error:', e);
+        return createInitialState();
+      }
+    }
+
+    function saveAppState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        showToast('डेटा सेव करने में त्रुटि हुई', 'error');
+      }
+    }
+
+    // Automatic 7:00 AM day rollover: previous day closing cash becomes today's opening cash
+    function ensureTodayShiftBalance(state) {
+      const todayShift = getBusinessShiftDate();
+      if (state.shiftBalances[todayShift] === undefined) {
+        const allDates = Object.keys(state.shiftBalances).sort();
+        if (allDates.length > 0) {
+          const lastDate = allDates[allDates.length - 1];
+          const prevClosing = calculateShiftCashClosing(state, lastDate);
+          state.shiftBalances[todayShift] = prevClosing;
+        } else {
+          state.shiftBalances[todayShift] = 0;
+        }
+      }
+    }
+
+    function calculateShiftCashClosing(state, shiftDate) {
+      const opening = Number(state.shiftBalances[shiftDate] || 0);
+      const txs = state.transactions.filter(t => t.shiftDate === shiftDate);
+      let cashSales = 0, cashVasooli = 0, cashExpense = 0, cashPersonal = 0;
+      txs.forEach(t => {
+        if (t.type === 'sales' && t.mode === 'Cash') cashSales += Number(t.amount);
+        if (t.type === 'vasooli' && t.mode === 'Cash') cashVasooli += Number(t.amount);
+        if (t.type === 'expense' && t.mode === 'Cash') cashExpense += Number(t.amount);
+        if (t.type === 'personal' && t.mode === 'Cash') cashPersonal += Number(t.amount);
+      });
+      return opening + cashSales + cashVasooli - cashExpense - cashPersonal;
+    }
+
+    // =========================================================================
+    // 2. NAVIGATION & UI RENDERING
+    // =========================================================================
+    function navigateTo(viewName) {
+      const views = ['home', 'sales', 'expense', 'personal', 'udhar', 'customer-detail', 'staff', 'report', 'settings'];
+      views.forEach(v => {
+        const el = document.getElementById('view-' + v);
+        if (el) el.classList.add('hidden');
+      });
+
+      const targetView = viewName === 'customers' ? 'udhar' : viewName;
+      const targetEl = document.getElementById('view-' + targetView);
+      if (targetEl) targetEl.classList.remove('hidden');
+
+      if (viewName === 'customers') {
+        document.getElementById('udhar-view-title').innerHTML = '<i class="fa-solid fa-users"></i> ग्राहक सूची व खाता';
+      } else if (viewName === 'udhar') {
+        document.getElementById('udhar-view-title').innerHTML = '<i class="fa-solid fa-book-open"></i> उधार खाता-बही';
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      refreshAllUI();
+    }
+
+    function openPersonalMonthlyReport() {
+      navigateTo('report');
+      setTimeout(() => {
+        const card = document.getElementById('monthly-personal-report-card');
+        if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      const bgClass = type === 'error'
+        ? 'bg-rose-600/95 border-rose-400 text-white'
+        : 'bg-emerald-600/95 border-emerald-300 text-white';
+      toast.className = `${bgClass} border px-4 py-3 rounded-2xl shadow-2xl text-xs sm:text-sm font-bold flex items-center justify-between backdrop-blur-md transition-all`;
+      toast.innerHTML = `<span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    function refreshAllUI() {
+      const todayShift = getBusinessShiftDate();
+      document.getElementById('header-dhaba-name').textContent = appState.settings.dhabaName || 'शिव ढाबा खाता';
+      document.getElementById('header-shift-date').textContent = formatHindiDate(todayShift);
+
+      // Calculate Today's Metrics
+      const todayTxs = appState.transactions.filter(t => t.shiftDate === todayShift);
+      let foodSales = 0, confSales = 0, cashSales = 0, onlineSales = 0;
+      let totalExpense = 0, cashExpense = 0;
+      let personalToday = 0, personalCashToday = 0;
+      let newUdhar = 0, vasooliTotal = 0, cashVasooli = 0;
+
+      todayTxs.forEach(t => {
+        const amt = Number(t.amount || 0);
+        if (t.type === 'sales') {
+          if (t.category === 'कन्फेक्शनरी') confSales += amt;
+          else foodSales += amt;
+          if (t.mode === 'Cash') cashSales += amt;
+          else onlineSales += amt;
+        } else if (t.type === 'expense') {
+          totalExpense += amt;
+          if (t.mode === 'Cash') cashExpense += amt;
+        } else if (t.type === 'personal') {
+          personalToday += amt;
+          if (t.mode === 'Cash') personalCashToday += amt;
+        } else if (t.type === 'udhar') {
+          newUdhar += amt;
+        } else if (t.type === 'vasooli') {
+          vasooliTotal += amt;
+          if (t.mode === 'Cash') cashVasooli += amt;
+        }
+      });
+
+      const totalSales = foodSales + confSales;
+      const openingCash = Number(appState.shiftBalances[todayShift] || 0);
+      const drawerCash = openingCash + cashSales + cashVasooli - cashExpense - personalCashToday;
+      const totalMarketUdhar = appState.customers.reduce((acc, c) => acc + Number(c.balance || 0), 0);
+
+      // Update Home Dashboard Bento Grid
+      document.getElementById('home-opening-cash').textContent = formatINR(openingCash);
+      document.getElementById('stat-today-sales').textContent = formatINR(totalSales);
+      document.getElementById('stat-sales-split').textContent = `खाना ${formatINR(foodSales)} • कन्फेक्शनरी ${formatINR(confSales)}`;
+      document.getElementById('stat-today-expense').textContent = formatINR(totalExpense);
+      document.getElementById('stat-today-udhar').textContent = formatINR(newUdhar);
+      document.getElementById('stat-today-vasooli').textContent = formatINR(vasooliTotal);
+      document.getElementById('stat-drawer-cash').textContent = formatINR(drawerCash);
+      document.getElementById('stat-total-market-udhar').textContent = formatINR(totalMarketUdhar);
+      const personalBadgeEl = document.getElementById('stat-today-personal-badge');
+      if (personalBadgeEl) personalBadgeEl.textContent = formatINR(personalToday);
+
+      // Update Ledger Summary
+      document.getElementById('ledger-total-pending').textContent = formatINR(totalMarketUdhar);
+      document.getElementById('ledger-today-vasooli').textContent = formatINR(vasooliTotal);
+
+      renderRecentTransactions(todayTxs);
+      renderSalesAndExpenseLists(todayTxs);
+      renderPersonalExpenseSection(todayShift, personalToday);
+      renderCustomerList();
+      renderStaffList();
+      renderMenuBuilder();
+      renderExpenseChips();
+      renderReport();
+      renderMonthlyPersonalReport();
+      populateSettingsForm();
+    }
+
+    function renderRecentTransactions(todayTxs) {
+      const container = document.getElementById('home-recent-list');
+      if (todayTxs.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-500 text-center py-4">आज अभी तक कोई एंट्री नहीं हुई है।</p>`;
+        return;
+      }
+      const sorted = [...todayTxs].reverse().slice(0, 8);
+      container.innerHTML = sorted.map(t => {
+        const badgeMap = {
+          sales: { label: `बिक्री (${t.category})`, color: 'text-emerald-400', sign: '+' },
+          expense: { label: `ढाबा खर्च (${t.category})`, color: 'text-rose-400', sign: '-' },
+          personal: { label: `निजी खर्च (Personal)`, color: 'text-pink-400', sign: '-' },
+          udhar: { label: `उधार (${t.customerName})`, color: 'text-amber-400', sign: '' },
+          vasooli: { label: `वसूली (${t.customerName})`, color: 'text-cyan-400', sign: '+' }
+        };
+        const b = badgeMap[t.type] || badgeMap.sales;
+        const timeStr = new Date(t.timestamp).toLocaleTimeString('hi-IN', { hour: '2-digit', minute: '2-digit' });
+        return `
+          <div class="flex items-center justify-between p-2.5 rounded-xl bg-black/40 border border-white/5 text-xs">
+            <div class="min-w-0 pr-2">
+              <div class="font-bold text-slate-200 truncate">${b.label}</div>
+              <div class="text-[11px] text-slate-400 truncate">${t.note || 'सामान्य एंट्री'} • ${t.mode} • ${timeStr}</div>
+            </div>
+            <div class="font-extrabold text-sm ${b.color} shrink-0">${b.sign}${formatINR(t.amount)}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // =========================================================================
+    // 3. SALES, EXPENSE & MENU RENDERERS / HANDLERS
+    // =========================================================================
+    function closeModal(modalId) {
+      const el = document.getElementById(modalId);
+      if (el) {
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      }
+    }
+
+    function setSalesCategory(cat) {
+      currentSalesCategory = cat;
+      const foodBtn = document.getElementById('sales-cat-food');
+      const confBtn = document.getElementById('sales-cat-conf');
+      if (!foodBtn || !confBtn) return;
+
+      if (cat === 'खाना') {
+        foodBtn.className = 'p-3.5 rounded-2xl border-2 border-emerald-500 bg-emerald-500/20 text-emerald-300 font-bold text-sm flex items-center justify-center gap-2 transition';
+        confBtn.className = 'p-3.5 rounded-2xl border border-white/10 bg-white/5 text-slate-300 font-bold text-sm flex items-center justify-center gap-2 transition';
+      } else {
+        confBtn.className = 'p-3.5 rounded-2xl border-2 border-cyan-500 bg-cyan-500/20 text-cyan-300 font-bold text-sm flex items-center justify-center gap-2 transition';
+        foodBtn.className = 'p-3.5 rounded-2xl border border-white/10 bg-white/5 text-slate-300 font-bold text-sm flex items-center justify-center gap-2 transition';
+      }
+    }
+
+    function switchSalesMode(mode) {
+      const quickForm = document.getElementById('form-sales-quick');
+      const menuForm = document.getElementById('form-sales-menu');
+      const quickTab = document.getElementById('tab-sales-quick');
+      const menuTab = document.getElementById('tab-sales-menu');
+      if (!quickForm || !menuForm) return;
+
+      if (mode === 'quick') {
+        quickForm.classList.remove('hidden');
+        menuForm.classList.add('hidden');
+        quickTab.className = 'py-2.5 rounded-xl bg-emerald-500 text-black font-bold text-xs sm:text-sm transition';
+        menuTab.className = 'py-2.5 rounded-xl text-slate-300 font-bold text-xs sm:text-sm transition';
+      } else {
+        quickForm.classList.add('hidden');
+        menuForm.classList.remove('hidden');
+        menuTab.className = 'py-2.5 rounded-xl bg-emerald-500 text-black font-bold text-xs sm:text-sm transition';
+        quickTab.className = 'py-2.5 rounded-xl text-slate-300 font-bold text-xs sm:text-sm transition';
+      }
+    }
+
+    function handleQuickSalesSubmit(e) {
+      e.preventDefault();
+      const amount = Number(document.getElementById('sales-quick-amount').value || 0);
+      if (amount <= 0) return;
+      const mode = document.querySelector('input[name="sales-quick-mode"]:checked').value;
+      const note = document.getElementById('sales-quick-note').value.trim() || `${currentSalesCategory} बिक्री`;
+
+      appState.transactions.push({
+        id: 'tx_' + Date.now(),
+        type: 'sales',
+        category: currentSalesCategory,
+        amount,
+        mode,
+        note,
+        shiftDate: getBusinessShiftDate(),
+        timestamp: new Date().toISOString()
+      });
+
+      saveAppState();
+      document.getElementById('sales-quick-amount').value = '';
+      document.getElementById('sales-quick-note').value = '';
+      showToast(`✅ ${currentSalesCategory} बिक्री (${formatINR(amount)}) सेव हो गई!`);
+      refreshAllUI();
+    }
+
+    function renderMenuBuilder() {
+      const grid = document.getElementById('menu-items-grid');
+      if (!grid) return;
+      grid.innerHTML = (appState.menu || []).map(item => `
+        <button type="button" onclick="addToMenuCart('${item.id}')" class="p-2.5 rounded-xl bg-black/50 border border-white/10 hover:border-emerald-400/50 text-left flex items-center justify-between transition">
+          <div class="min-w-0 pr-1">
+            <div class="text-xs font-bold text-slate-200 truncate">${item.name}</div>
+            <div class="text-[10px] text-slate-400">${item.category}</div>
+          </div>
+          <span class="text-xs font-extrabold text-emerald-400 shrink-0">₹${item.price}</span>
+        </button>
+      `).join('');
+      updateMenuCartUI();
+    }
+
+    function addToMenuCart(itemId) {
+      menuCart[itemId] = (menuCart[itemId] || 0) + 1;
+      updateMenuCartUI();
+    }
+
+    function clearMenuCart() {
+      menuCart = {};
+      updateMenuCartUI();
+    }
+
+    function updateMenuCartUI() {
+      const listEl = document.getElementById('menu-cart-list');
+      const totalEl = document.getElementById('menu-cart-total');
+      if (!listEl || !totalEl) return;
+
+      const entries = Object.entries(menuCart).filter(([, qty]) => qty > 0);
+      if (entries.length === 0) {
+        listEl.innerHTML = `<p class="text-slate-500 italic">ऊपर से आइटम पर क्लिक करके जोड़ें...</p>`;
+        totalEl.textContent = '₹0';
+        return;
+      }
+
+      let total = 0;
+      listEl.innerHTML = entries.map(([id, qty]) => {
+        const item = appState.menu.find(m => m.id === id);
+        if (!item) return '';
+        const sub = item.price * qty;
+        total += sub;
+        return `<div class="flex justify-between"><span>${item.name} x${qty}</span><span class="text-emerald-400 font-bold">₹${sub}</span></div>`;
+      }).join('');
+      totalEl.textContent = formatINR(total);
+    }
+
+    function saveMenuBill(shouldPrint) {
+      const entries = Object.entries(menuCart).filter(([, qty]) => qty > 0);
+      if (entries.length === 0) {
+        showToast('कृपया पहले मेन्यू से आइटम चुनें', 'error');
+        return;
+      }
+
+      let total = 0;
+      const summaryParts = [];
+      entries.forEach(([id, qty]) => {
+        const item = appState.menu.find(m => m.id === id);
+        if (item) {
+          total += item.price * qty;
+          summaryParts.push(`${item.name} x${qty}`);
+        }
+      });
+
+      const mode = document.querySelector('input[name="sales-menu-mode"]:checked').value;
+      const tx = {
+        id: 'tx_' + Date.now(),
+        type: 'sales',
+        category: currentSalesCategory,
+        amount: total,
+        mode,
+        note: summaryParts.join(', '),
+        shiftDate: getBusinessShiftDate(),
+        timestamp: new Date().toISOString()
+      };
+
+      appState.transactions.push(tx);
+      saveAppState();
+      clearMenuCart();
+      refreshAllUI();
+      showToast(`✅ बिल (${formatINR(total)}) सेव हो गया!`);
+      if (shouldPrint) {
+        openPrintReceipt(tx, entries);
+      }
+    }
+
+    function renderExpenseChips() {
+      const container = document.getElementById('expense-category-chips');
+      if (!container) return;
+      container.innerHTML = EXPENSE_CATEGORIES.map(cat => {
+        const active = cat === selectedExpenseCategory;
+        return `
+          <button type="button" onclick="selectExpenseCat('${cat}')" class="px-3 py-1.5 rounded-xl text-xs font-bold border transition ${active ? 'border-rose-400 bg-rose-500/25 text-rose-200' : 'border-white/10 bg-white/5 text-slate-300'}">
+            ${cat}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectExpenseCat(cat) {
+      selectedExpenseCategory = cat;
+      renderExpenseChips();
+    }
+
+    function handleExpenseSubmit(e) {
+      e.preventDefault();
+      const amount = Number(document.getElementById('expense-amount').value || 0);
+      const detail = document.getElementById('expense-detail').value.trim();
+      if (amount <= 0 || !detail) return;
+      const mode = document.querySelector('input[name="expense-mode"]:checked').value;
+
+      appState.transactions.push({
+        id: 'tx_' + Date.now(),
+        type: 'expense',
+        category: selectedExpenseCategory,
+        amount,
+        mode,
+        note: detail,
+        shiftDate: getBusinessShiftDate(),
+        timestamp: new Date().toISOString()
+      });
+
+      saveAppState();
+      document.getElementById('expense-amount').value = '';
+      document.getElementById('expense-detail').value = '';
+      showToast(`✅ खर्च (${formatINR(amount)}) दर्ज हो गया!`);
+      refreshAllUI();
+    }
+
+    // =========================================================================
+    // 3B. PERSONAL EXPENSE (निजी खर्च) HANDLERS & MONTHLY RENDERER
+    // =========================================================================
+    function handlePersonalExpenseSubmit(e) {
+      e.preventDefault();
+      const amount = Number(document.getElementById('personal-amount').value || 0);
+      const note = document.getElementById('personal-note').value.trim() || 'निजी खर्च (Personal)';
+      if (amount <= 0) return;
+      const mode = document.querySelector('input[name="personal-mode"]:checked').value;
+
+      appState.transactions.push({
+        id: 'tx_' + Date.now(),
+        type: 'personal',
+        category: 'निजी खर्च',
+        amount,
+        mode,
+        note,
+        shiftDate: getBusinessShiftDate(),
+        timestamp: new Date().toISOString()
+      });
+
+      saveAppState();
+      document.getElementById('personal-amount').value = '';
+      document.getElementById('personal-note').value = '';
+      showToast(`✅ निजी खर्च (${formatINR(amount)}) दर्ज हो गया! (कुल बिक्री हिसाब में जुड़ेगा)`);
+      refreshAllUI();
+    }
+
+    function renderPersonalExpenseSection(todayShift, personalToday) {
+      const todayEl = document.getElementById('personal-today-total');
+      const monthEl = document.getElementById('personal-month-total');
+      const listEl = document.getElementById('personal-recent-list');
+      if (!todayEl || !monthEl || !listEl) return;
+
+      const currentMonthPrefix = todayShift.slice(0, 7);
+      const allPersonal = appState.transactions.filter(t => t.type === 'personal');
+      const monthTotal = allPersonal
+        .filter(t => t.shiftDate && t.shiftDate.startsWith(currentMonthPrefix))
+        .reduce((sum, t) => sum + Number(t.amount || 0), 0);
+
+      todayEl.textContent = formatINR(personalToday);
+      monthEl.textContent = formatINR(monthTotal);
+
+      const recent = [...allPersonal].reverse().slice(0, 10);
+      listEl.innerHTML = recent.length
+        ? recent.map(p => `
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-black/40 border border-white/5 text-xs">
+              <div class="min-w-0 pr-2">
+                <div class="font-bold text-slate-200 truncate">${p.note}</div>
+                <div class="text-[11px] text-slate-400">${formatHindiDate(p.shiftDate)} • ${p.mode}</div>
+              </div>
+              <div class="font-extrabold text-pink-400 text-sm shrink-0">${formatINR(p.amount)}</div>
+            </div>
+          `).join('')
+        : `<p class="text-xs text-slate-500 text-center py-3">अभी तक कोई निजी खर्च दर्ज नहीं है।</p>`;
+    }
+
+    function renderMonthlyPersonalReport() {
+      const picker = document.getElementById('personal-month-picker');
+      const totalEl = document.getElementById('mpr-total');
+      const cashEl = document.getElementById('mpr-cash');
+      const onlineEl = document.getElementById('mpr-online');
+      const listEl = document.getElementById('mpr-entries-list');
+      if (!picker || !totalEl || !listEl) return;
+
+      if (!picker.value) {
+        picker.value = getBusinessShiftDate().slice(0, 7);
+      }
+      const selectedMonth = picker.value;
+      const monthEntries = appState.transactions.filter(
+        t => t.type === 'personal' && t.shiftDate && t.shiftDate.startsWith(selectedMonth)
+      );
+
+      let total = 0, cash = 0, online = 0;
+      monthEntries.forEach(e => {
+        const amt = Number(e.amount || 0);
+        total += amt;
+        if (e.mode === 'Cash') cash += amt;
+        else online += amt;
+      });
+
+      totalEl.textContent = formatINR(total);
+      cashEl.textContent = formatINR(cash);
+      onlineEl.textContent = formatINR(online);
+
+      listEl.innerHTML = monthEntries.length
+        ? [...monthEntries].reverse().map(e => `
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-black/45 border border-white/5 text-xs">
+              <div class="min-w-0 pr-2">
+                <div class="font-bold text-slate-200 truncate">${e.note}</div>
+                <div class="text-[11px] text-slate-400">${formatHindiDate(e.shiftDate)} • ${e.mode === 'Cash' ? 'गल्ले का कैश' : 'ऑनलाइन'}</div>
+              </div>
+              <div class="font-extrabold text-pink-400 text-sm shrink-0">${formatINR(e.amount)}</div>
+            </div>
+          `).join('')
+        : `<p class="text-xs text-slate-500 text-center py-4">इस महीने कोई निजी खर्च दर्ज नहीं है।</p>`;
+    }
+
+    function printMonthlyPersonalReport() {
+      const picker = document.getElementById('personal-month-picker');
+      const selectedMonth = picker?.value || getBusinessShiftDate().slice(0, 7);
+      const monthEntries = appState.transactions.filter(
+        t => t.type === 'personal' && t.shiftDate && t.shiftDate.startsWith(selectedMonth)
+      );
+      let total = 0;
+      const rows = monthEntries.map(e => {
+        total += Number(e.amount || 0);
+        return `<div style="display:flex;justify-content:space-between;border-bottom:1px dotted #ccc;padding:3px 0;">
+          <span>${formatHindiDate(e.shiftDate)} - ${e.note} (${e.mode})</span>
+          <strong>₹${e.amount}</strong>
+        </div>`;
+      }).join('');
+
+      document.getElementById('print-size-badge').textContent = appState.settings.printerSize || '80mm';
+      document.getElementById('print-area').innerHTML = `
+        <div style="text-align:center;border-bottom:1px solid #000;padding-bottom:6px;margin-bottom:8px;">
+          <strong style="font-size:15px;">${appState.settings.dhabaName} - निजी खर्च मासिक रिपोर्ट</strong><br/>
+          <span>माह: ${selectedMonth}</span>
+        </div>
+        <div>${rows || '<p>कोई एंट्री नहीं</p>'}</div>
+        <div style="display:flex;justify-content:space-between;font-weight:bold;font-size:14px;margin-top:8px;border-top:1px solid #000;padding-top:6px;">
+          <span>कुल मासिक निजी खर्च:</span>
+          <span>₹${total}</span>
+        </div>
+      `;
+      document.getElementById('print-modal').classList.remove('hidden');
+      document.getElementById('print-modal').classList.add('flex');
+    }
+
+    function renderSalesAndExpenseLists(todayTxs) {
+      const salesListEl = document.getElementById('sales-today-list');
+      const expListEl = document.getElementById('expense-today-list');
+
+      if (salesListEl) {
+        const sales = todayTxs.filter(t => t.type === 'sales').reverse();
+        salesListEl.innerHTML = sales.length
+          ? sales.map(s => `
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-black/40 border border-white/5 text-xs">
+                <div>
+                  <div class="font-bold text-slate-200">${s.category} • ${s.mode}</div>
+                  <div class="text-[11px] text-slate-400">${s.note}</div>
+                </div>
+                <div class="font-extrabold text-emerald-400 text-sm">${formatINR(s.amount)}</div>
+              </div>
+            `).join('')
+          : `<p class="text-xs text-slate-500">आज कोई बिक्री दर्ज नहीं है।</p>`;
+      }
+
+      if (expListEl) {
+        const exps = todayTxs.filter(t => t.type === 'expense').reverse();
+        expListEl.innerHTML = exps.length
+          ? exps.map(ex => `
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-black/40 border border-white/5 text-xs">
+                <div>
+                  <div class="font-bold text-slate-200">${ex.category} • ${ex.mode}</div>
+                  <div class="text-[11px] text-slate-400">${ex.note}</div>
+                </div>
+                <div class="font-extrabold text-rose-400 text-sm">-${formatINR(ex.amount)}</div>
+              </div>
+            `).join('')
+          : `<p class="text-xs text-slate-500">आज कोई खर्च दर्ज नहीं है।</p>`;
+      }
+    }
+
+    // =========================================================================
+    // 4. CUSTOMER KHATA-BAHI LEDGER & POLITE REMINDERS
+    // =========================================================================
+    function renderCustomerList() {
+      const listEl = document.getElementById('customer-ledger-list');
+      if (!listEl) return;
+      const query = (document.getElementById('customer-search-input')?.value || '').trim().toLowerCase();
+
+      const filtered = (appState.customers || []).filter(c =>
+        c.name.toLowerCase().includes(query) || (c.phone && c.phone.includes(query))
+      );
+
+      if (filtered.length === 0) {
+        listEl.innerHTML = `<div class="bento-card rounded-2xl p-6 text-center text-xs text-slate-400">कोई ग्राहक नहीं मिला। ऊपर "+ नया ग्राहक" दबाकर जोड़ें।</div>`;
+        return;
+      }
+
+      listEl.innerHTML = filtered.map(c => `
+        <div onclick="openCustomerDetail('${c.id}')" class="bento-card rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-amber-400/50 transition">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-2xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center font-extrabold text-amber-400 text-base">
+              ${c.name.charAt(0)}
+            </div>
+            <div>
+              <div class="font-extrabold text-white text-sm sm:text-base">${c.name}</div>
+              <div class="text-xs text-slate-400">${c.phone || 'मोबाइल नंबर नहीं'}</div>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="text-[10px] text-slate-400 block">बकाया</span>
+            <span class="text-base sm:text-lg font-extrabold ${Number(c.balance) > 0 ? 'text-amber-400' : 'text-emerald-400'}">${formatINR(c.balance)}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openNewCustomerModal() {
+      const modal = document.getElementById('new-customer-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function handleAddNewCustomer(e) {
+      e.preventDefault();
+      const name = document.getElementById('new-cust-name').value.trim();
+      const phone = document.getElementById('new-cust-phone').value.trim();
+      const amount = Number(document.getElementById('new-cust-amount').value || 0);
+      const type = document.getElementById('new-cust-type').value;
+      const note = document.getElementById('new-cust-note').value.trim() || (type === 'old' ? 'पुराना बकाया उधार' : 'नया उधार');
+      if (!name) return;
+
+      const newCust = {
+        id: 'cust_' + Date.now(),
+        name,
+        phone,
+        balance: amount
+      };
+      appState.customers.push(newCust);
+
+      if (amount > 0 && type === 'new') {
+        appState.transactions.push({
+          id: 'tx_' + Date.now(),
+          type: 'udhar',
+          customerId: newCust.id,
+          customerName: name,
+          amount,
+          mode: 'Udhar',
+          note,
+          shiftDate: getBusinessShiftDate(),
+          timestamp: new Date().toISOString()
+        });
+      }
+
+      saveAppState();
+      closeModal('new-customer-modal');
+      document.getElementById('new-cust-name').value = '';
+      document.getElementById('new-cust-phone').value = '';
+      document.getElementById('new-cust-amount').value = '0';
+      document.getElementById('new-cust-note').value = '';
+      showToast(`✅ ग्राहक "${name}" का खाता बन गया!`);
+      refreshAllUI();
+    }
+
+    function openCustomerDetail(custId) {
+      activeCustomerId = custId;
+      const cust = appState.customers.find(c => c.id === custId);
+      if (!cust) return;
+
+      document.getElementById('detail-cust-name').textContent = cust.name;
+      document.getElementById('detail-cust-phone').innerHTML = `<i class="fa-solid fa-phone text-xs"></i> ${cust.phone || 'नंबर दर्ज नहीं'}`;
+      document.getElementById('detail-cust-balance').textContent = formatINR(cust.balance);
+
+      const historyEl = document.getElementById('detail-cust-history');
+      const custTxs = appState.transactions.filter(t => t.customerId === cust.id).reverse();
+      historyEl.innerHTML = custTxs.length
+        ? custTxs.map(t => {
+            const isUdhar = t.type === 'udhar';
+            return `
+              <div class="flex items-center justify-between p-3 rounded-xl bg-black/45 border border-white/5 text-xs">
+                <div>
+                  <div class="font-bold ${isUdhar ? 'text-rose-400' : 'text-emerald-400'}">
+                    ${isUdhar ? '🔴 उधार दिया' : '🟢 पैसे आए (वसूली)'}
+                  </div>
+                  <div class="text-[11px] text-slate-400">${t.note || ''} • ${formatHindiDate(t.shiftDate)} (${t.mode})</div>
+                </div>
+                <div class="font-extrabold text-sm ${isUdhar ? 'text-rose-400' : 'text-emerald-400'}">
+                  ${isUdhar ? '+' : '-'}${formatINR(t.amount)}
+                </div>
+              </div>
+            `;
+          }).join('')
+        : `<p class="text-xs text-slate-500 text-center py-4">अभी तक कोई लेन-देन दर्ज नहीं है।</p>`;
+
+      navigateTo('customer-detail');
+    }
+
+    function openCustomerTxModal(txType) {
+      const cust = appState.customers.find(c => c.id === activeCustomerId);
+      if (!cust) return;
+
+      document.getElementById('cust-tx-type').value = txType;
+      document.getElementById('cust-tx-amount').value = '';
+      document.getElementById('cust-tx-note').value = '';
+
+      const titleEl = document.getElementById('cust-tx-modal-title');
+      const modeBox = document.getElementById('cust-tx-mode-box');
+      const submitBtn = document.getElementById('cust-tx-submit-btn');
+
+      if (txType === 'udhar') {
+        titleEl.textContent = `🔴 ${cust.name} को और उधार दिया`;
+        modeBox.classList.add('hidden');
+        submitBtn.className = 'w-full py-3.5 rounded-2xl bg-rose-500 text-white font-extrabold text-sm';
+        submitBtn.textContent = '✅ उधार खाते में जोड़ें';
+      } else {
+        titleEl.textContent = `🟢 ${cust.name} से पैसे आए (वसूली)`;
+        modeBox.classList.remove('hidden');
+        submitBtn.className = 'w-full py-3.5 rounded-2xl bg-emerald-500 text-black font-extrabold text-sm';
+        submitBtn.textContent = '✅ वसूली जमा करें (बिक्री से अलग)';
+      }
+
+      const modal = document.getElementById('cust-tx-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function handleCustomerTxSubmit(e) {
+      e.preventDefault();
+      const cust = appState.customers.find(c => c.id === activeCustomerId);
+      if (!cust) return;
+
+      const txType = document.getElementById('cust-tx-type').value;
+      const amount = Number(document.getElementById('cust-tx-amount').value || 0);
+      if (amount <= 0) return;
+      const note = document.getElementById('cust-tx-note').value.trim() || (txType === 'udhar' ? 'उधार सामान' : 'उधार वसूली जमा');
+
+      let mode = 'Udhar';
+      if (txType === 'udhar') {
+        cust.balance = Number(cust.balance || 0) + amount;
+      } else {
+        cust.balance = Math.max(0, Number(cust.balance || 0) - amount);
+        mode = document.querySelector('input[name="cust-vasooli-mode"]:checked').value;
+      }
+
+      appState.transactions.push({
+        id: 'tx_' + Date.now(),
+        type: txType,
+        customerId: cust.id,
+        customerName: cust.name,
+        amount,
+        mode,
+        note,
+        shiftDate: getBusinessShiftDate(),
+        timestamp: new Date().toISOString()
+      });
+
+      saveAppState();
+      closeModal('cust-tx-modal');
+      showToast(txType === 'udhar' ? `🔴 ${formatINR(amount)} उधार जुड़ गया!` : `🟢 ${formatINR(amount)} वसूली दर्ज हो गई!`);
+      openCustomerDetail(cust.id);
+    }
+
+    function openReminderModal() {
+      const cust = appState.customers.find(c => c.id === activeCustomerId);
+      if (!cust) return;
+      const dhabaName = appState.settings.dhabaName || 'शिव ढाबा';
+      const msg = `नमस्ते ${cust.name} जी 🙏,\n${dhabaName} की ओर से सादर सूचना है कि आपके खाते में ${formatINR(cust.balance)} की राशि बकाया है। कृपया सुविधा अनुसार जल्द भुगतान करने की कृपा करें।\nधन्यवाद!`;
+      document.getElementById('reminder-message-box').value = msg;
+
+      const modal = document.getElementById('reminder-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function sendReminderVia(channel) {
+      const cust = appState.customers.find(c => c.id === activeCustomerId);
+      const msg = document.getElementById('reminder-message-box').value;
+      const phone = (cust?.phone || '').replace(/\D/g, '');
+
+      if (channel === 'whatsapp') {
+        const waUrl = phone
+          ? `https://wa.me/91${phone.slice(-10)}?text=${encodeURIComponent(msg)}`
+          : `https://wa.me/?text=${encodeURIComponent(msg)}`;
+        window.open(waUrl, '_blank');
+        showToast('✅ WhatsApp रिमाइंडर खुल गया है!');
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = msg;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        showToast('✅ रिमाइंडर संदेश कॉपी हो गया है, अब SMS में पेस्ट करें!');
+      }
+      closeModal('reminder-modal');
+    }
+
+    // =========================================================================
+    // 5B. STAFF & SALARY MANAGEMENT (DEFAULT PRESENT + VOICE ADD/DELETE)
+    // =========================================================================
+    function renderStaffList() {
+      const container = document.getElementById('staff-cards-list');
+      if (!container) return;
+
+      if (!appState.workers || appState.workers.length === 0) {
+        container.innerHTML = `
+          <div class="bento-card rounded-2xl p-6 text-center space-y-2">
+            <p class="text-sm text-slate-400">अभी कोई वर्कर दर्ज नहीं है।</p>
+            <p class="text-xs text-slate-500">माइक दबाकर बोलें: <em>"नया वर्कर अनिल जोड़ दो सैलरी 15000"</em></p>
+          </div>
+        `;
+        return;
+      }
+
+      const todayShift = getBusinessShiftDate();
+      const currentMonthPrefix = todayShift.slice(0, 7);
+
+      container.innerHTML = appState.workers.map(w => {
+        const monthAbsents = (w.absentDates || []).filter(d => d.startsWith(currentMonthPrefix));
+        const absentCount = monthAbsents.length;
+        const isAbsentToday = (w.absentDates || []).includes(todayShift);
+        const monthAdvances = (w.advances || []).filter(a => a.shiftDate && a.shiftDate.startsWith(currentMonthPrefix));
+        const totalAdvance = monthAdvances.reduce((sum, a) => sum + Number(a.amount || 0), 0);
+        const perDaySalary = Number(w.monthlySalary || 0) / 30;
+        const absentDeduction = Math.round(perDaySalary * absentCount);
+        const netPayable = Math.max(0, Math.round(Number(w.monthlySalary || 0) - absentDeduction - totalAdvance));
+
+        return `
+          <div class="bento-card rounded-3xl p-4 border-violet-500/25 space-y-3">
+            <div class="flex items-start justify-between">
+              <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-2xl bg-violet-500/20 border border-violet-400/30 flex items-center justify-center font-extrabold text-violet-300 text-lg">
+              ${w.name.charAt(0)}
+            </div>
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 class="text-base font-extrabold text-white">${w.name}</h3>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${isAbsentToday ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'}">
+                  ${isAbsentToday ? 'आज छुट्टी पर' : 'आज प्रेजेंट'}
+                </span>
+              </div>
+              <p class="text-xs text-slate-400">${w.role || 'ढाबा स्टाफ'} • तय सैलरी: <strong class="text-slate-200">${formatINR(w.monthlySalary)}/माह</strong> (<span class="text-cyan-300">${formatINR(Math.round(perDaySalary))}/दिन</span>)</p>
+            </div>
+          </div>
+          <button onclick="promptDeleteWorkerByVoice('${w.id}')" title="वर्कर हटाएं" class="text-slate-500 hover:text-rose-400 p-1.5 text-xs">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+
+            <div class="grid grid-cols-3 gap-2 text-center text-xs">
+              <div class="p-2 rounded-xl bg-black/45 border border-white/5">
+                <span class="text-[10px] text-slate-400 block">कुल छुट्टी (माह)</span>
+                <strong class="text-sm text-rose-400">${absentCount} दिन</strong>
+              </div>
+              <div class="p-2 rounded-xl bg-black/45 border border-white/5">
+                <span class="text-[10px] text-slate-400 block">एडवांस लिया</span>
+                <strong class="text-sm text-amber-400">${formatINR(totalAdvance)}</strong>
+              </div>
+              <div class="p-2 rounded-xl bg-violet-500/15 border border-violet-400/30">
+                <span class="text-[10px] text-violet-200 block">बकाया देय सैलरी</span>
+                <strong class="text-sm text-emerald-400">${formatINR(netPayable)}</strong>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5 pt-1">
+              <button onclick="toggleWorkerAbsentToday('${w.id}')" class="py-2.5 px-3 rounded-xl ${isAbsentToday ? 'bg-emerald-500/20 border border-emerald-400/40 text-emerald-300' : 'bg-rose-500/20 border border-rose-400/40 text-rose-300'} font-bold text-xs">
+                ${isAbsentToday ? '✅ छुट्टी हटाएं (Present करें)' : '📅 आज की छुट्टी दर्ज करें'}
+              </button>
+              <button onclick="openWorkerAdvanceModal('${w.id}')" class="py-2.5 px-3 rounded-xl bg-violet-500 text-white font-bold text-xs shadow-md">
+                💸 एडवांस / सैलरी दें
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openNewWorkerModal() {
+      document.getElementById('new-worker-modal').classList.remove('hidden');
+      document.getElementById('new-worker-modal').classList.add('flex');
+    }
+
+    function handleAddNewWorker(e) {
+      e.preventDefault();
+      const name = document.getElementById('new-worker-name').value.trim();
+      const salary = Number(document.getElementById('new-worker-salary').value || 0);
+      const role = document.getElementById('new-worker-role').value.trim() || 'ढाबा स्टाफ';
+      if (!name || salary <= 0) return;
+
+      appState.workers.push({
+        id: 'wrk_' + Date.now(),
+        name,
+        role,
+        monthlySalary: salary,
+        absentDates: [],
+        advances: []
+      });
+
+      saveAppState();
+      closeModal('new-worker-modal');
+      document.getElementById('new-worker-name').value = '';
+      document.getElementById('new-worker-salary').value = '';
+      document.getElementById('new-worker-role').value = '';
+      showToast(`✅ वर्कर "${name}" (सैलरी ${formatINR(salary)}) जुड़ गया!`);
+      refreshAllUI();
+    }
+
+    function toggleWorkerAbsentToday(workerId) {
+      const worker = appState.workers.find(w => w.id === workerId);
+      if (!worker) return;
+      const todayShift = getBusinessShiftDate();
+      if (!Array.isArray(worker.absentDates)) worker.absentDates = [];
+
+      const idx = worker.absentDates.indexOf(todayShift);
+      if (idx === -1) {
+        worker.absentDates.push(todayShift);
+        showToast(`📅 ${worker.name} की आज की छुट्टी (Absent) दर्ज हो गई।`);
+      } else {
+        worker.absentDates.splice(idx, 1);
+        showToast(`✅ ${worker.name} की छुट्टी हटा दी गई (Present)।`);
+      }
+      saveAppState();
+      refreshAllUI();
+    }
+
+    function openWorkerAdvanceModal(workerId) {
+      const worker = appState.workers.find(w => w.id === workerId);
+      if (!worker) return;
+      document.getElementById('worker-adv-id').value = worker.id;
+      document.getElementById('worker-adv-title').textContent = `💸 ${worker.name} को एडवांस / सैलरी दें`;
+      document.getElementById('worker-adv-amount').value = '';
+      document.getElementById('worker-adv-note').value = '';
+      document.getElementById('worker-advance-modal').classList.remove('hidden');
+      document.getElementById('worker-advance-modal').classList.add('flex');
+    }
+
+    function handleWorkerAdvanceSubmit(e) {
+      e.preventDefault();
+      const workerId = document.getElementById('worker-adv-id').value;
+      const worker = appState.workers.find(w => w.id === workerId);
+      if (!worker) return;
+
+      const amount = Number(document.getElementById('worker-adv-amount').value || 0);
+      if (amount <= 0) return;
+      const mode = document.querySelector('input[name="worker-adv-mode"]:checked').value;
+      const note = document.getElementById('worker-adv-note').value.trim() || `${worker.name} को एडवांस/सैलरी`;
+      const todayShift = getBusinessShiftDate();
+
+      if (!Array.isArray(worker.advances)) worker.advances = [];
+      worker.advances.push({
+        id: 'adv_' + Date.now(),
+        amount,
+        mode,
+        note,
+        shiftDate: todayShift
+      });
+
+      // Automatically record in Daily Expenses so Drawer Cash stays 100% accurate
+      appState.transactions.push({
+        id: 'tx_' + Date.now(),
+        type: 'expense',
+        category: 'स्टाफ सैलरी/एडवांस',
+        amount,
+        mode,
+        note: `${worker.name}: ${note}`,
+        shiftDate: todayShift,
+        timestamp: new Date().toISOString()
+      });
+
+      saveAppState();
+      closeModal('worker-advance-modal');
+      showToast(`✅ ${worker.name} को ${formatINR(amount)} एडवांस दर्ज (खर्च में भी जुड़ा)!`);
+      refreshAllUI();
+    }
+
+    function promptDeleteWorkerByVoice(workerId) {
+      const worker = appState.workers.find(w => w.id === workerId);
+      if (!worker) return;
+      processSpokenTranscript(`${worker.name} वर्कर को डिलीट कर दो`);
+    }
+
+    // =========================================================================
+    // 6. DIRECT BOTTOM MIC (VISUAL WAVE ONLY -> AUTO-NAVIGATE TO SECTION)
+    // =========================================================================
+    let recognition = null;
+    let isMicListening = false;
+
+    function setBottomMicVisualState(listening, customSubtitle = '') {
+      isMicListening = listening;
+      const bar = document.getElementById('bottom-mic-bar');
+      const circle = document.getElementById('mic-icon-circle');
+      const title = document.getElementById('bottom-mic-title');
+      const sub = document.getElementById('bottom-mic-subtitle');
+      const waves = document.getElementById('bottom-mic-waves');
+
+      if (!bar || !circle || !title || !sub || !waves) return;
+
+      if (listening) {
+        bar.classList.add('border-cyan-400', 'ring-2', 'ring-cyan-400/50');
+        circle.classList.add('mic-listening');
+        title.textContent = '🎙️ सुन रहा हूँ... बोलिए';
+        title.classList.add('text-cyan-300');
+        sub.textContent = customSubtitle || 'बोलना बंद करते ही सही सेक्शन खुलेगा';
+        waves.classList.remove('hidden');
+        waves.classList.add('flex');
+      } else {
+        bar.classList.remove('border-cyan-400', 'ring-2', 'ring-cyan-400/50');
+        circle.classList.remove('mic-listening');
+        title.textContent = 'बोलकर एंट्री करें';
+        title.classList.remove('text-cyan-300');
+        sub.textContent = customSubtitle || 'दबाएं और सीधे बोलें (कोई अलग विंडो नहीं खुलेगी)';
+        waves.classList.add('hidden');
+        waves.classList.remove('flex');
+      }
+    }
+
+    function toggleBottomMicListening() {
+      if (isMicListening && recognition) {
+        try { recognition.stop(); } catch (e) {}
+        setBottomMicVisualState(false);
+        return;
+      }
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        showToast('इस ब्राउज़र में माइक सपोर्ट उपलब्ध नहीं है, नीचे लिखकर कमांड दें।', 'error');
+        openVoiceTypeFallback();
+        return;
+      }
+
+      try {
+        recognition = new SpeechRecognition();
+        recognition.lang = 'hi-IN';
+        recognition.interimResults = true;
+        recognition.maxAlternatives = 1;
+
+        let finalTranscript = '';
+
+        recognition.onstart = () => {
+          setBottomMicVisualState(true, 'अब बोलें...');
+        };
+
+        recognition.onresult = (event) => {
+          let interim = '';
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            if (event.results[i].isFinal) {
+              finalTranscript += event.results[i][0].transcript;
+            } else {
+              interim += event.results[i][0].transcript;
+            }
+          }
+          const liveText = (finalTranscript || interim).trim();
+          if (liveText) {
+            setBottomMicVisualState(true, `"${liveText}"`);
+          }
+        };
+
+        recognition.onerror = (err) => {
+          setBottomMicVisualState(false);
+          if (err && (err.error === 'not-allowed' || err.error === 'service-not-allowed')) {
+            showToast('माइक की अनुमति बंद है — कीबोर्ड बटन से कमांड लिखें।', 'error');
+            openVoiceTypeFallback();
+          } else {
+            showToast('आवाज़ स्पष्ट नहीं मिली, माइक दोबारा दबाकर बोलें।', 'error');
+          }
+        };
+
+        recognition.onend = () => {
+          setBottomMicVisualState(false);
+          const spoken = finalTranscript.trim();
+          if (spoken) {
+            processSpokenTranscript(spoken);
+          }
+        };
+
+        recognition.start();
+      } catch (e) {
+        setBottomMicVisualState(false);
+        openVoiceTypeFallback();
+      }
+    }
+
+    function openVoiceTypeFallback() {
+      const modal = document.getElementById('voice-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeVoiceRoutedBanner() {
+      const banner = document.getElementById('voice-routed-banner');
+      if (banner) banner.classList.add('hidden');
+    }
+
+    function closeVoiceModal() {
+      closeModal('voice-modal');
+    }
+
+    // Understands spoken Hindi, navigates directly to the matching section, pre-fills it & shows inline save bar
+    function processSpokenTranscript(rawText) {
+      const text = (rawText || '').trim();
+      if (!text) return;
+
+      const parsed = parseHindiVoiceCommand(text);
+      if (!parsed) return;
+
+      // 1. Navigate directly to the target section and pre-fill its actual form!
+      if (parsed.entryType === 'sales') {
+        navigateTo('sales');
+        setSalesCategory(parsed.target === 'कन्फेक्शनरी' ? 'कन्फेक्शनरी' : 'खाना');
+        switchSalesMode('quick');
+        if (parsed.amount > 0) document.getElementById('sales-quick-amount').value = parsed.amount;
+        document.getElementById('sales-quick-note').value = text;
+        const radio = document.querySelector(`input[name="sales-quick-mode"][value="${parsed.mode === 'Online' ? 'Online' : 'Cash'}"]`);
+        if (radio) radio.checked = true;
+      } else if (parsed.entryType === 'expense') {
+        navigateTo('expense');
+        selectExpenseCat(parsed.target || 'अन्य');
+        if (parsed.amount > 0) document.getElementById('expense-amount').value = parsed.amount;
+        document.getElementById('expense-detail').value = text;
+        const radio = document.querySelector(`input[name="expense-mode"][value="${parsed.mode === 'Online' ? 'Online' : 'Cash'}"]`);
+        if (radio) radio.checked = true;
+      } else if (parsed.entryType === 'personal') {
+        navigateTo('personal');
+        if (parsed.amount > 0) document.getElementById('personal-amount').value = parsed.amount;
+        document.getElementById('personal-note').value = text;
+        const radio = document.querySelector(`input[name="personal-mode"][value="${parsed.mode === 'Online' ? 'Online' : 'Cash'}"]`);
+        if (radio) radio.checked = true;
+      } else if (parsed.entryType === 'udhar' || parsed.entryType === 'vasooli') {
+        const matchedCust = appState.customers.find(c =>
+          c.name.toLowerCase().includes(parsed.target.toLowerCase())
+        );
+        if (matchedCust) {
+          openCustomerDetail(matchedCust.id);
+        } else {
+          navigateTo('udhar');
+        }
+      } else if (parsed.entryType.startsWith('staff_')) {
+        navigateTo('staff');
+      }
+
+      // 2. Show inline confirmation bar at top of that section so 1-tap Save finishes the job
+      const banner = document.getElementById('voice-routed-banner');
+      const quoteEl = document.getElementById('routed-spoken-quote');
+      if (quoteEl) quoteEl.textContent = `आपने कहा: "${text}"`;
+      if (banner) banner.classList.remove('hidden');
+    }
+
+    function updatePerDayPreview() {
+      const type = document.getElementById('conf-entry-type').value;
+      const badge = document.getElementById('conf-perday-badge');
+      const valEl = document.getElementById('conf-perday-value');
+      if (!badge || !valEl) return;
+      if (type === 'staff_add') {
+        const monthly = Number(document.getElementById('conf-amount').value || 0);
+        const perDay = Math.round(monthly / 30);
+        badge.classList.remove('hidden');
+        valEl.textContent = `${formatINR(perDay)} / दिन`;
+      } else {
+        badge.classList.add('hidden');
+      }
+    }
+
+    function toggleConfirmCustomerField() {
+      const type = document.getElementById('conf-entry-type').value;
+      const amtLabel = document.getElementById('conf-amount-label');
+      const catLabel = document.getElementById('conf-cat-label');
+      const modeLabel = document.getElementById('conf-mode-label');
+      const paySelect = document.getElementById('conf-pay-mode');
+      const roleInput = document.getElementById('conf-role-input');
+      const saveBtn = document.getElementById('conf-save-btn');
+
+      if (roleInput) roleInput.classList.add('hidden');
+      if (paySelect) paySelect.classList.remove('hidden');
+      if (modeLabel) modeLabel.textContent = 'पेमेंट मोड';
+
+      if (type === 'staff_add') {
+        catLabel.textContent = 'वर्कर का पूरा नाम';
+        amtLabel.textContent = 'महीने की सैलरी (₹)';
+        if (modeLabel) modeLabel.textContent = 'पद / काम (Role)';
+        if (paySelect) paySelect.classList.add('hidden');
+        if (roleInput) roleInput.classList.remove('hidden');
+        saveBtn.className = 'py-2.5 rounded-xl bg-violet-500 text-white font-extrabold text-xs shadow-lg';
+        saveBtn.textContent = '✅ स्टाफ में प्रोफाइल बनाएं';
+      } else if (type === 'staff_delete') {
+        catLabel.textContent = 'वर्कर का नाम';
+        amtLabel.textContent = 'रकम (लागू नहीं)';
+        saveBtn.className = 'py-2.5 rounded-xl bg-rose-600 text-white font-extrabold text-xs shadow-lg';
+        saveBtn.textContent = '🗑️ हाँ, डिलीट करें';
+      } else if (type === 'staff_absent') {
+        catLabel.textContent = 'वर्कर का नाम';
+        amtLabel.textContent = 'छुट्टी के दिन';
+        saveBtn.className = 'py-2.5 rounded-xl bg-violet-500 text-white font-extrabold text-xs shadow-lg';
+        saveBtn.textContent = '✅ छुट्टी दर्ज करें';
+      } else {
+        catLabel.textContent = 'कैटेगरी / नाम';
+        amtLabel.textContent = 'रकम (₹)';
+        saveBtn.className = 'py-2.5 rounded-xl bg-emerald-500 text-black font-extrabold text-xs shadow-lg';
+        saveBtn.textContent = '✅ सेव करें';
+      }
+      updatePerDayPreview();
+    }
+
+    // Smart Hindi NLP Parser for Sales, Expense, Udhar, Vasooli & Voice-First Staff Management
+    function parseHindiVoiceCommand(rawText) {
+      const text = (rawText || '').trim();
+      if (!text) return null;
+
+      // Extract numeric amount
+      const numMatch = text.match(/(\d+(\.\d+)?)/);
+      const amount = numMatch ? Number(numMatch[1]) : 0;
+
+      // Detect Payment Mode
+      let mode = 'Cash';
+      if (/ऑनलाइन|online|upi|पेटीएम|फोनपे|गूगल पे|gpay|paytm|bank/i.test(text)) {
+        mode = 'Online';
+      }
+
+      // Detect Entry Type (Universal Router across all sections)
+      let entryType = 'sales';
+      let target = 'खाना';
+      let detectedRole = 'ढाबा स्टाफ';
+
+      const matchedWorker = (appState.workers || []).find(w =>
+        text.toLowerCase().includes(w.name.split(' ')[0].toLowerCase())
+      );
+
+      if (/वर्कर.*(डिलीट|हटा|निकाल)|स्टाफ से (हटा|डिलीट)|(डिलीट|हटा).*वर्कर/i.test(text)) {
+        entryType = 'staff_delete';
+        if (matchedWorker) {
+          target = matchedWorker.name;
+        } else {
+          const cleanName = text.replace(/वर्कर|स्टाफ|को|से|डिलीट|हटा|कर|दो|करो/gi, '').trim();
+          target = cleanName.split(' ')[0] || 'वर्कर';
+        }
+      } else if (/(नया|नये)\s*(वर्कर|स्टाफ)|वर्कर.*(जोड़|ऐड|बना)|स्टाफ में (जोड़|ऐड)|नई एंट्री करो|नया स्टाफ|एज ए\s*(शेफ|कुक|वेटर|हेल्पर|मैनेजर)|as a\s*(chef|cook|waiter|helper)/i.test(text)) {
+        entryType = 'staff_add';
+        const roleMatch = text.match(/(?:एज ए|as a|पद)\s*([^\s\d,]+)/i);
+        if (roleMatch && roleMatch[1]) {
+          detectedRole = roleMatch[1];
+        } else if (/शेफ|chef/i.test(text)) detectedRole = 'शेफ (Chef)';
+        else if (/कुक|रसोइया|cook/i.test(text)) detectedRole = 'कुक / रसोइया';
+        else if (/वेटर|waiter/i.test(text)) detectedRole = 'वेटर';
+        else if (/हेल्पर|helper/i.test(text)) detectedRole = 'हेल्पर';
+
+        const beforeKo = text.match(/^(?:नया\s*वर्कर\s*|नया\s*स्टाफ\s*)?(.+?)\s+को\s+(?:एज|नई|नया|वर्कर|स्टाफ)/i);
+        const afterWorker = text.match(/(?:वर्कर|स्टाफ)\s+(.+?)(?:\s+को|\s+जोड़|\s+ऐड|\s+सैलरी|\s+\d|$)/i);
+        if (beforeKo && beforeKo[1]) {
+          target = beforeKo[1].trim();
+        } else if (afterWorker && afterWorker[1]) {
+          target = afterWorker[1].trim();
+        } else {
+          target = text.replace(/नई एंट्री करो|नया वर्कर|एज ए.*|सैलरी.*|\d+/gi, '').trim() || 'नया वर्कर';
+        }
+      } else if (/छुट्टी|एब्सेंट|absent|नागा/i.test(text)) {
+        entryType = 'staff_absent';
+        if (matchedWorker) {
+          target = matchedWorker.name;
+        } else {
+          const cleanName = text.replace(/आज|की|का|को|छुट्टी|पर|है|एब्सेंट|absent|लगा|दो/gi, '').trim();
+          target = cleanName.split(' ')[0] || 'वर्कर';
+        }
+      } else if (/एडवांस|advance|सैलरी|पगार|तनख्वाह|खर्ची/i.test(text) && (matchedWorker || /वर्कर|स्टाफ/i.test(text))) {
+        entryType = 'staff_advance';
+        target = matchedWorker ? matchedWorker.name : (text.match(/^([^\s]+)/)?.[1] || 'वर्कर');
+      } else if (/वसूली|वापस|जमा|आ गए|आए उधार|उधार के आ/i.test(text)) {
+        entryType = 'vasooli';
+      } else if (/उधार/i.test(text)) {
+        entryType = 'udhar';
+        mode = 'Udhar';
+      } else if (/पर्सनल|personal|निजी|खुद के लिए|घर के लिए|अपने लिए/i.test(text)) {
+        entryType = 'personal';
+        target = 'निजी खर्च';
+      } else if (/खर्च|खरीद|खरीदा|खरीदी|सब्जी|दूध|गैस|सिलेंडर|बिजली|राशन/i.test(text)) {
+        entryType = 'expense';
+      } else {
+        entryType = 'sales';
+      }
+
+      // Detect Customer Name for Udhar / Vasooli
+      if (entryType === 'udhar' || entryType === 'vasooli') {
+        const matchedCust = appState.customers.find(c =>
+          text.toLowerCase().includes(c.name.split(' ')[0].toLowerCase())
+        );
+        if (matchedCust) {
+          target = matchedCust.name;
+        } else {
+          const nameMatch = text.match(/^([^\s]+)\s+(को|से)/);
+          target = nameMatch ? nameMatch[1] : 'नया ग्राहक';
+        }
+      } else if (entryType === 'sales') {
+        target = /कन्फेक्शनरी|कोल्ड|सिगरेट|बीड़ी|पानी|चिप्स/i.test(text) ? 'कन्फेक्शनरी' : 'खाना';
+      } else if (entryType === 'expense') {
+        if (/सब्जी|राशन|आटा|पनीर/i.test(text)) target = 'सब्जी/राशन';
+        else if (/दूध|दही/i.test(text)) target = 'दूध';
+        else if (/गैस|सिलेंडर/i.test(text)) target = 'गैस सिलेंडर';
+        else if (/बिजली/i.test(text)) target = 'बिजली/मेंटेनेंस';
+        else target = 'अन्य';
+      }
+
+      // Populate Inline Section Confirmation Banner
+      document.getElementById('conf-entry-type').value = entryType;
+      document.getElementById('conf-amount').value = entryType === 'staff_absent' ? (amount || 1) : (amount || '');
+      document.getElementById('conf-target').value = target;
+      document.getElementById('conf-role-input').value = detectedRole;
+      document.getElementById('conf-pay-mode').value = mode;
+      document.getElementById('conf-note').value = text;
+      toggleConfirmCustomerField();
+
+      return { entryType, amount, target, detectedRole, mode, text };
+    }
+
+    function confirmAndSaveVoiceEntry() {
+      const entryType = document.getElementById('conf-entry-type').value;
+      const amount = Number(document.getElementById('conf-amount').value);
+      const target = document.getElementById('conf-target').value.trim();
+      const roleEl = document.getElementById('conf-role-input');
+      const roleVal = (roleEl ? roleEl.value.trim() : '') || 'ढाबा स्टाफ';
+      const mode = document.getElementById('conf-pay-mode').value;
+      const note = document.getElementById('conf-note').value.trim() || 'बोलकर एंट्री';
+      const todayShift = getBusinessShiftDate();
+
+      // Handle Voice Staff Actions (Add, Delete, Absent, Advance)
+      if (entryType === 'staff_add') {
+        if (!target) {
+          showToast('कृपया वर्कर का नाम दर्ज करें', 'error');
+          return;
+        }
+        const monthlySal = amount > 0 ? amount : 0;
+        const perDaySal = Math.round(monthlySal / 30);
+        appState.workers.push({
+          id: 'wrk_' + Date.now(),
+          name: target,
+          role: roleVal,
+          monthlySalary: monthlySal,
+          absentDates: [],
+          advances: []
+        });
+        saveAppState();
+        closeVoiceRoutedBanner();
+        showToast(`✅ "${target}" (${roleVal}) स्टाफ में जुड़ गया! सैलरी: ${formatINR(monthlySal)}/माह (${formatINR(perDaySal)}/दिन)`);
+        navigateTo('staff');
+        return;
+      }
+
+      if (entryType === 'staff_delete') {
+        const idx = appState.workers.findIndex(w => w.name.toLowerCase().includes(target.toLowerCase()));
+        if (idx === -1) {
+          showToast(`"${target}" नाम का वर्कर नहीं मिला!`, 'error');
+          return;
+        }
+        const removedName = appState.workers[idx].name;
+        appState.workers.splice(idx, 1);
+        saveAppState();
+        closeVoiceRoutedBanner();
+        showToast(`🗑️ वर्कर "${removedName}" को स्टाफ सूची से हटा दिया गया।`);
+        refreshAllUI();
+        return;
+      }
+
+      if (entryType === 'staff_absent') {
+        const worker = appState.workers.find(w => w.name.toLowerCase().includes(target.toLowerCase()));
+        if (!worker) {
+          showToast(`"${target}" नाम का वर्कर नहीं मिला!`, 'error');
+          return;
+        }
+        if (!Array.isArray(worker.absentDates)) worker.absentDates = [];
+        if (!worker.absentDates.includes(todayShift)) {
+          worker.absentDates.push(todayShift);
+        }
+        saveAppState();
+        closeVoiceRoutedBanner();
+        showToast(`📅 ${worker.name} की आज की छुट्टी (Absent) दर्ज हो गई!`);
+        refreshAllUI();
+        return;
+      }
+
+      if (entryType === 'staff_advance') {
+        if (!amount || amount <= 0) {
+          showToast('कृपया एडवांस रकम दर्ज करें', 'error');
+          return;
+        }
+        const worker = appState.workers.find(w => w.name.toLowerCase().includes(target.toLowerCase()));
+        if (!worker) {
+          showToast(`"${target}" नाम का वर्कर नहीं मिला!`, 'error');
+          return;
+        }
+        const payMode = mode === 'Udhar' ? 'Cash' : mode;
+        if (!Array.isArray(worker.advances)) worker.advances = [];
+        worker.advances.push({
+          id: 'adv_' + Date.now(),
+          amount,
+          mode: payMode,
+          note,
+          shiftDate: todayShift
+        });
+        appState.transactions.push({
+          id: 'tx_' + Date.now(),
+          type: 'expense',
+          category: 'स्टाफ सैलरी/एडवांस',
+          amount,
+          mode: payMode,
+          note: `${worker.name}: ${note}`,
+          shiftDate: todayShift,
+          timestamp: new Date().toISOString()
+        });
+        saveAppState();
+        closeVoiceRoutedBanner();
+        showToast(`✅ ${worker.name} को ${formatINR(amount)} एडवांस दर्ज (खर्च में भी जुड़ा)!`);
+        refreshAllUI();
+        return;
+      }
+
+      if (!amount || amount <= 0) {
+        showToast('कृपया सही रकम दर्ज करें', 'error');
+        return;
+      }
+
+      if (entryType === 'sales') {
+        const cat = target === 'कन्फेक्शनरी' ? 'कन्फेक्शनरी' : 'खाना';
+        appState.transactions.push({
+          id: 'tx_' + Date.now(),
+          type: 'sales',
+          category: cat,
+          amount,
+          mode: mode === 'Udhar' ? 'Cash' : mode,
+          note,
+          shiftDate: todayShift,
+          timestamp: new Date().toISOString()
+        });
+      } else if (entryType === 'expense') {
+        appState.transactions.push({
+          id: 'tx_' + Date.now(),
+          type: 'expense',
+          category: target || 'अन्य',
+          amount,
+          mode: mode === 'Udhar' ? 'Cash' : mode,
+          note,
+          shiftDate: todayShift,
+          timestamp: new Date().toISOString()
+        });
+      } else if (entryType === 'personal') {
+        appState.transactions.push({
+          id: 'tx_' + Date.now(),
+          type: 'personal',
+          category: 'निजी खर्च',
+          amount,
+          mode: mode === 'Udhar' ? 'Cash' : mode,
+          note,
+          shiftDate: todayShift,
+          timestamp: new Date().toISOString()
+        });
+      } else if (entryType === 'udhar' || entryType === 'vasooli') {
+        const custName = target || 'अज्ञात ग्राहक';
+        let cust = appState.customers.find(c => c.name.toLowerCase().includes(custName.toLowerCase()));
+        if (!cust) {
+          cust = { id: 'cust_' + Date.now(), name: custName, phone: '', balance: 0 };
+          appState.customers.push(cust);
+        }
+        if (entryType === 'udhar') {
+          cust.balance = Number(cust.balance || 0) + amount;
+        } else {
+          cust.balance = Math.max(0, Number(cust.balance || 0) - amount);
+        }
+        appState.transactions.push({
+          id: 'tx_' + Date.now(),
+          type: entryType,
+          customerId: cust.id,
+          customerName: cust.name,
+          amount,
+          mode: entryType === 'udhar' ? 'Udhar' : (mode === 'Udhar' ? 'Cash' : mode),
+          note,
+          shiftDate: todayShift,
+          timestamp: new Date().toISOString()
+        });
+      }
+
+      saveAppState();
+      closeVoiceRoutedBanner();
+      showToast(`✅ बोलकर एंट्री (${formatINR(amount)}) सुरक्षित सेव हो गई!`);
+      refreshAllUI();
+    }
+
+    // =========================================================================
+    // 7. REPORTS & PRINTING
+    // =========================================================================
+    function setReportFilter(filter) {
+      currentReportFilter = filter;
+      ['today', 'yesterday', '7days', 'month'].forEach(f => {
+        const btn = document.getElementById('rep-filter-' + f);
+        if (btn) {
+          btn.className = f === filter
+            ? 'px-3.5 py-2 rounded-xl bg-purple-500 text-white font-bold text-xs whitespace-nowrap'
+            : 'px-3.5 py-2 rounded-xl bento-card text-slate-300 font-bold text-xs whitespace-nowrap';
+        }
+      });
+      renderReport();
+    }
+
+    function renderReport() {
+      const todayShift = getBusinessShiftDate();
+      let filteredTxs = [];
+
+      if (currentReportFilter === 'today') {
+        filteredTxs = appState.transactions.filter(t => t.shiftDate === todayShift);
+      } else if (currentReportFilter === 'yesterday') {
+        const d = new Date();
+        if (d.getHours() < 7) d.setDate(d.getDate() - 2);
+        else d.setDate(d.getDate() - 1);
+        const yStr = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        filteredTxs = appState.transactions.filter(t => t.shiftDate === yStr);
+      } else if (currentReportFilter === '7days') {
+        const cutoff = new Date();
+        cutoff.setDate(cutoff.getDate() - 7);
+        filteredTxs = appState.transactions.filter(t => new Date(t.timestamp) >= cutoff);
+      } else if (currentReportFilter === 'month') {
+        const prefix = todayShift.slice(0, 7);
+        filteredTxs = appState.transactions.filter(t => t.shiftDate.startsWith(prefix));
+      } else if (currentReportFilter === 'custom') {
+        const customDate = document.getElementById('rep-custom-date').value;
+        filteredTxs = appState.transactions.filter(t => t.shiftDate === customDate);
+      }
+
+      let foodSales = 0, confSales = 0, cashSales = 0, onlineSales = 0;
+      let totalExpense = 0, cashExpense = 0, onlineExpense = 0;
+      let personalTotal = 0, personalCash = 0, personalOnline = 0;
+      let newUdhar = 0, vasooli = 0, cashVasooli = 0, onlineVasooli = 0;
+      const expList = [];
+
+      filteredTxs.forEach(t => {
+        const amt = Number(t.amount || 0);
+        if (t.type === 'sales') {
+          if (t.category === 'कन्फेक्शनरी') confSales += amt;
+          else foodSales += amt;
+          if (t.mode === 'Cash') cashSales += amt;
+          else onlineSales += amt;
+        } else if (t.type === 'expense') {
+          totalExpense += amt;
+          if (t.mode === 'Cash') cashExpense += amt;
+          else onlineExpense += amt;
+          expList.push(t);
+        } else if (t.type === 'personal') {
+          personalTotal += amt;
+          if (t.mode === 'Cash') personalCash += amt;
+          else personalOnline += amt;
+        } else if (t.type === 'udhar') {
+          newUdhar += amt;
+        } else if (t.type === 'vasooli') {
+          vasooli += amt;
+          if (t.mode === 'Cash') cashVasooli += amt;
+          else onlineVasooli += amt;
+        }
+      });
+
+      const totalSales = foodSales + confSales;
+      const openingCash = Number(appState.shiftBalances[todayShift] || 0);
+      const expectedCash = openingCash + cashSales + cashVasooli - cashExpense - personalCash;
+
+      // Reconciled Net Sale Formula:
+      // (Closing Cash - Opening Cash) + Dhaba Cash Expense + Personal Cash Expense + New Udhar - Cash Vasooli + Online Sales
+      const cashNetSale = (expectedCash - openingCash) + cashExpense + personalCash + newUdhar - cashVasooli;
+      const reconciledNetSale = cashNetSale + onlineSales;
+      const netProfit = reconciledNetSale - totalExpense;
+
+      document.getElementById('rep-total-sales').textContent = formatINR(totalSales);
+      document.getElementById('rep-food-sales').textContent = formatINR(foodSales);
+      document.getElementById('rep-conf-sales').textContent = formatINR(confSales);
+      document.getElementById('rep-cash-sales').textContent = formatINR(cashSales);
+      document.getElementById('rep-online-sales').textContent = formatINR(onlineSales);
+
+      document.getElementById('rep-total-expense').textContent = formatINR(totalExpense);
+      document.getElementById('rep-cash-expense').textContent = formatINR(cashExpense);
+      document.getElementById('rep-online-expense').textContent = formatINR(onlineExpense);
+
+      document.getElementById('rep-personal-expense').textContent = formatINR(personalTotal);
+      document.getElementById('rep-personal-cash').textContent = formatINR(personalCash);
+      document.getElementById('rep-personal-online').textContent = formatINR(personalOnline);
+
+      document.getElementById('rep-expense-items').innerHTML = expList.length
+        ? expList.map(e => `<div class="flex justify-between text-slate-300 border-b border-white/5 pb-1"><span>• ${e.category}: ${e.note}</span><span class="text-rose-400 font-bold">${formatINR(e.amount)}</span></div>`).join('')
+        : `<p class="text-slate-500">इस अवधि में कोई खर्च नहीं।</p>`;
+
+      document.getElementById('rep-new-udhar').textContent = formatINR(newUdhar);
+      document.getElementById('rep-vasooli').textContent = formatINR(vasooli);
+      document.getElementById('rep-vasooli-split').textContent = `Cash ${formatINR(cashVasooli)} • Online ${formatINR(onlineVasooli)}`;
+
+      document.getElementById('rep-opening-cash').textContent = formatINR(openingCash);
+      document.getElementById('rep-add-cash-sales').textContent = `+ ${formatINR(cashSales)}`;
+      document.getElementById('rep-add-cash-vasooli').textContent = `+ ${formatINR(cashVasooli)}`;
+      document.getElementById('rep-sub-cash-expense').textContent = `- ${formatINR(cashExpense)}`;
+      document.getElementById('rep-sub-personal-cash').textContent = `- ${formatINR(personalCash)}`;
+      document.getElementById('rep-expected-cash').textContent = formatINR(expectedCash);
+      document.getElementById('rep-reconciled-net-sale').textContent = formatINR(reconciledNetSale);
+      document.getElementById('rep-net-profit').textContent = formatINR(netProfit);
+    }
+
+    function openPrintReceipt(tx, entries) {
+      const size = appState.settings.printerSize || '80mm';
+      document.getElementById('print-size-badge').textContent = size;
+      const lines = entries.map(([id, qty]) => {
+        const item = appState.menu.find(m => m.id === id);
+        return `<div style="display:flex;justify-content:space-between;"><span>${item.name} x${qty}</span><span>₹${item.price * qty}</span></div>`;
+      }).join('');
+
+      document.getElementById('print-area').innerHTML = `
+        <div style="text-align:center;border-bottom:1px dashed #000;padding-bottom:6px;">
+          <strong style="font-size:16px;">${appState.settings.dhabaName}</strong><br/>
+          <span>${appState.settings.address || ''}</span><br/>
+          <span>मो: ${appState.settings.phone || ''}</span>
+        </div>
+        <div style="margin:6px 0;font-size:11px;">
+          तारीख: ${formatHindiDate(tx.shiftDate)} | मोड: ${tx.mode}
+        </div>
+        <div style="border-top:1px dashed #000;border-bottom:1px dashed #000;padding:6px 0;">
+          ${lines}
+        </div>
+        <div style="display:flex;justify-content:space-between;font-weight:bold;font-size:14px;margin-top:6px;">
+          <span>कुल राशि:</span>
+          <span>₹${tx.amount}</span>
+        </div>
+        <div style="text-align:center;margin-top:10px;font-size:11px;">धन्यवाद! पुनः पधारें 🙏</div>
+      `;
+      document.getElementById('print-modal').classList.remove('hidden');
+      document.getElementById('print-modal').classList.add('flex');
+    }
+
+    function printCurrentReport() {
+      const size = appState.settings.printerSize || '80mm';
+      document.getElementById('print-size-badge').textContent = size;
+      const reportHtml = document.getElementById('report-content-area').innerText;
+      document.getElementById('print-area').innerHTML = `
+        <div style="text-align:center;border-bottom:1px solid #000;padding-bottom:6px;margin-bottom:8px;">
+          <strong style="font-size:16px;">${appState.settings.dhabaName} - हिसाब रिपोर्ट</strong><br/>
+          <span>तारीख: ${formatHindiDate(getBusinessShiftDate())}</span>
+        </div>
+        <pre style="white-space:pre-wrap;font-family:inherit;font-size:12px;">${reportHtml}</pre>
+      `;
+      document.getElementById('print-modal').classList.remove('hidden');
+      document.getElementById('print-modal').classList.add('flex');
+    }
+
+    // =========================================================================
+    // 8. SETTINGS, MENU MANAGER & BACKUP / EXPORT / IMPORT
+    // =========================================================================
+    function populateSettingsForm() {
+      const todayShift = getBusinessShiftDate();
+      document.getElementById('set-dhaba-name').value = appState.settings.dhabaName || '';
+      document.getElementById('set-dhaba-phone').value = appState.settings.phone || '';
+      document.getElementById('set-dhaba-address').value = appState.settings.address || '';
+      document.getElementById('set-opening-cash').value = appState.shiftBalances[todayShift] || 0;
+      document.getElementById('set-printer-size').value = appState.settings.printerSize || '80mm';
+      document.getElementById('set-kitchen-printer').checked = !!appState.settings.kitchenPrinter;
+
+      const menuList = document.getElementById('settings-menu-list');
+      menuList.innerHTML = appState.menu.map(m => `
+        <div class="flex items-center justify-between p-2 rounded-lg bg-black/40 border border-white/5">
+          <span>${m.name} (${m.category}) - <strong class="text-emerald-400">₹${m.price}</strong></span>
+          <button type="button" onclick="deleteMenuItem('${m.id}')" class="text-rose-400 px-2">✕</button>
+        </div>
+      `).join('');
+    }
+
+    function saveBusinessSettings(e) {
+      e.preventDefault();
+      const todayShift = getBusinessShiftDate();
+      appState.settings.dhabaName = document.getElementById('set-dhaba-name').value.trim();
+      appState.settings.phone = document.getElementById('set-dhaba-phone').value.trim();
+      appState.settings.address = document.getElementById('set-dhaba-address').value.trim();
+      appState.settings.printerSize = document.getElementById('set-printer-size').value;
+      appState.settings.kitchenPrinter = document.getElementById('set-kitchen-printer').checked;
+      appState.shiftBalances[todayShift] = Number(document.getElementById('set-opening-cash').value || 0);
+
+      saveAppState();
+      refreshAllUI();
+      showToast('✅ सेटिंग्स और ओपनिंग बैलेंस अपडेट हो गए!');
+    }
+
+    function addMenuItem() {
+      const name = document.getElementById('new-menu-name').value.trim();
+      const price = Number(document.getElementById('new-menu-price').value);
+      const category = document.getElementById('new-menu-cat').value;
+      if (!name || !price) return;
+
+      appState.menu.push({ id: 'm_' + Date.now(), name, price, category });
+      saveAppState();
+      document.getElementById('new-menu-name').value = '';
+      document.getElementById('new-menu-price').value = '';
+      refreshAllUI();
+      showToast(`✅ "${name}" मेन्यू में जुड़ गया!`);
+    }
+
+    function deleteMenuItem(id) {
+      appState.menu = appState.menu.filter(m => m.id !== id);
+      saveAppState();
+      refreshAllUI();
+    }
+
+    function exportBackupJSON() {
+      const dataStr = JSON.stringify(appState, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Shiv_Dhaba_Khata_Backup_${getBusinessShiftDate()}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('✅ बैकअप फाइल डाउनलोड हो गई!');
+    }
+
+    function importBackupJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const imported = JSON.parse(e.target.result);
+          if (imported && imported.transactions && imported.customers) {
+            appState = imported;
+            saveAppState();
+            refreshAllUI();
+            showToast('✅ पुराना बैकअप डेटा सफलतापूर्वक रीस्टोर हो गया!');
+          } else {
+            showToast('अमान्य बैकअप फाइल!', 'error');
+          }
+        } catch (err) {
+          showToast('फाइल पढ़ने में त्रुटि!', 'error');
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    let clearConfirmPending = false;
+    function confirmClearAllData() {
+      if (!clearConfirmPending) {
+        clearConfirmPending = true;
+        showToast('⚠️ पक्का करने के लिए 4 सेकंड में दोबारा बटन दबाएं!', 'error');
+        setTimeout(() => { clearConfirmPending = false; }, 4000);
+        return;
+      }
+      const todayShift = getBusinessShiftDate();
+      appState.transactions = [];
+      appState.customers = [];
+      appState.shiftBalances = { [todayShift]: 0 };
+      saveAppState();
+      clearConfirmPending = false;
+      refreshAllUI();
+      showToast('✅ सारा डेमो डेटा साफ हो गया! अब अपना असली हिसाब शुरू करें।');
+    }
+
+    // Initialize App on Load
+    window.onload = function () {
+      refreshAllUI();
+    };
+  </script>
+</body>
+</html>
